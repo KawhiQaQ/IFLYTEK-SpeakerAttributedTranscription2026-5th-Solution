@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.wav binary
+*.zip binary
+*.gz binary
+*.pt binary
+*.pth binary
+*.joblib binary
+*.nemo binary
+*.safetensors binary

@@ -1,0 +1,32 @@
+name: v537_voxconverse_context_v156
+description: V156 final-test inference with the V534 VoxConverse-initialized all-development contextual metric.
+fold: 0
+base_experiment: v90_moss_v38_novel_fusion
+complementary_experiment: v84_moss_consensus_v20_tracks
+feature_experiment: v134_eres2netv2_multiscale_metric_features
+metric_checkpoint: models/speaker_metric/v156_eres2netv2_boundary_metric_full/metric_adapter.pt
+test_sources:
+  base: outputs/v95_moss_acoustic_graph_fusion/test/sessions
+  complementary: outputs/v84_moss_consensus_v20_tracks/test/sessions
+  features: data/speaker_features_label_free/v134_eres2netv2_multiscale_metric_features/test
+  secondary_features: data/speaker_features_label_free/v25_multiscale_speaker_graph/test
+  streaming_overlap: outputs/v19_qwen3_sortformer_consistent_turns_submission/test/sessions
+  offline_overlap: outputs/v16_qwen3_sortformer_offline_public_submission/test/sessions
+node:
+  max_seconds: 1.2
+  max_gap_seconds: 0.6
+arbitration:
+  same_speaker_probability: 0.5
+  secondary_feature_experiment: v25_multiscale_speaker_graph
+  secondary_metric_checkpoint: models/speaker_metric/v92_boundary_metric_full/metric_adapter.pt
+  purity_checkpoint: models/speaker_purity/v156_speaker_purity_full/purity_head.pt
+  contextual_metric_checkpoint: models/data_experts/v534_voxconverse_structure_matched_v174_heads/full/contextual_metric.pt
+overlap_guard:
+  streaming_experiment: v19_qwen3_sortformer_consistent_turns_capacity_route
+  offline_experiment: v16_qwen3_sortformer_offline_public_capacity_route
+audit:
+  frozen_from_fold_pure_cv: v536_voxconverse_context_specialist_v174
+  training_scope: all_official_development
+  final_test_inference_only: true
+  uses_test_for_training: false
+  uses_test_for_model_selection: false

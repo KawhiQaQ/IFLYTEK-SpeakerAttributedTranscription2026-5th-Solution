@@ -1,0 +1,21 @@
+name: v93_boundary_metric_graph_full_test
+description: Full-development V92 metric graph inference on label-free final-test features.
+feature_experiment: v25_multiscale_speaker_graph
+metric_checkpoint: models/speaker_metric/v92_boundary_metric_full/metric_adapter.pt
+asr_source_dir: outputs/test_fireredasr2_aed/sessions
+track_source_dir: outputs/v20_diarization_quality_router_submission/test/sessions
+model:
+  scales: 3
+node:
+  max_seconds: 1.2
+  max_gap_seconds: 0.6
+clustering:
+  same_speaker_posterior: 0.5
+  min_speakers: 2
+  max_speakers: 6
+assignment:
+  max_gap_seconds: 0.8
+audit:
+  final_test_inference: true
+  uses_test_for_training: false
+  uses_test_for_model_selection: false

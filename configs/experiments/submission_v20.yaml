@@ -1,0 +1,13 @@
+name: v20_diarization_quality_router_submission
+description: Final label-free CAMPPlus coherence routing between full V19 streaming and public V16 offline test candidates.
+streaming_experiment: v19_qwen3_sortformer_consistent_turns_submission
+offline_experiment: v16_qwen3_sortformer_offline_public_submission
+submission_path: submissions/v20_third_submission.seglst.json
+router:
+  toolkit: modelscope/3D-Speaker
+  model: iic/speech_campplus_sv_zh_en_16k-common_advanced
+  revision: v1.0.0
+  model_cache_dir: models/modelscope/3dspeaker
+  device: cuda:0
+  min_pure_seconds: 0.5
+  min_quality_margin: 0.1

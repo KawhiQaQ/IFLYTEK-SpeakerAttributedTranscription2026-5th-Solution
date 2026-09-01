@@ -1,0 +1,13 @@
+name: v74_moss_transcribe_diarize
+description: Independent 0.9B end-to-end joint transcription, timestamps, and speaker diarization.
+cv_version: v1
+fold: 0
+model:
+  checkpoint: models/huggingface/OpenMOSS-Team/MOSS-Transcribe-Diarize
+  dtype: bfloat16
+  device: cuda:0
+  max_new_tokens: 2048
+audit:
+  development_only: true
+  uses_validation_labels: false
+  uses_test_data: false

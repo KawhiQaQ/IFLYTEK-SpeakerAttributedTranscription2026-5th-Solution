@@ -1,0 +1,45 @@
+name: v540_final_release
+metric: tcpwer
+collar_seconds: 5
+leaderboard_tcpwer: 0.14727
+validation:
+  folds: [0, 1]
+  aggregation: pooled_error_count
+  errors: 1023
+  reference_tokens: 7904
+  tcpwer: 0.129428
+final_submission:
+  path: submissions/v540_v538_self_overlap_restore_v2.seglst.json
+  sha256: 033b699bfcfbcb9da3a6ae9aa0188d3d31b2de1bc8e82fca8a422d20415d6630
+stages:
+  transcription:
+    configs:
+      - configs/experiments/v4_qwen3_asr.yaml
+      - configs/experiments/v28_fireredasr2_aed.yaml
+      - configs/experiments/v32_fireredasr2_llm.yaml
+      - configs/experiments/v74_moss_transcribe_diarize.yaml
+  diarization_tracks:
+    configs:
+      - configs/experiments/submission_v16.yaml
+      - configs/experiments/submission_v19.yaml
+      - configs/experiments/submission_v20.yaml
+  text_and_graph_fusion:
+    configs:
+      - configs/experiments/v84_moss_consensus_v20_tracks.yaml
+      - configs/experiments/v92_boundary_metric_full.yaml
+      - configs/experiments/v93_boundary_metric_graph_full_test.yaml
+    entrypoint: scripts/build_v95_test_submission.py
+  contextual_role_model:
+    train_config: configs/experiments/v534_voxconverse_structure_matched_v174_heads.yaml
+    full_fit_config: configs/deployment/v534_voxconverse_context_full.yaml
+    inference_config: configs/deployment/v537_voxconverse_context_v156_test.yaml
+    entrypoint: scripts/run_consensus_prototype_arbitration.py
+  novel_speaker_cascade:
+    cv_config: configs/experiments/v173_wespeaker_novel_existence_energy.yaml
+    inference_config: configs/deployment/v538_voxconverse_context_v174_test.yaml
+    entrypoint: scripts/build_v174_test_submission.py
+  final_consistency_repair:
+    entrypoint: scripts/postprocess_self_overlap_source_restore.py
+    refined: submissions/v538_voxconverse_context_v174.seglst.json
+    source: submissions/v95_moss_acoustic_graph_fusion.seglst.json
+    min_overlap_seconds: 0.20

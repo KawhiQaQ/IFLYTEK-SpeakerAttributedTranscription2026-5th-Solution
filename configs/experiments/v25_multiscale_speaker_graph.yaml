@@ -1,0 +1,43 @@
+name: v25_multiscale_speaker_graph
+description: Fold-pure multiscale CAMPPlus session Transformer with speaker attractors, PIT activity, learned speaker count, and pairwise identity supervision.
+cv_version: v1
+fold: 0
+seed: 3407
+features:
+  hop_seconds: 0.4
+  window_seconds: [0.75, 1.5, 3.0]
+  embedding_dimension: 192
+  device: cuda:0
+  model: iic/speech_campplus_sv_zh_en_16k-common_advanced
+model:
+  max_speakers: 6
+  model_dimension: 256
+  attention_heads: 8
+  encoder_layers: 4
+  decoder_layers: 2
+  feedforward_dimension: 768
+  dropout: 0.15
+  affinity_dimension: 128
+training:
+  max_epochs: 60
+  patience: 9
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  gradient_clip_norm: 2.0
+  feature_noise_std: 0.01
+  feature_mask_probability: 0.04
+  activity_loss_weight: 1.0
+  existence_loss_weight: 0.3
+  count_loss_weight: 0.3
+  affinity_loss_weight: 0.25
+  change_loss_weight: 0.1
+  precision: bfloat16
+assignment:
+  max_gap_seconds: 0.8
+  asr_source_experiment: v4_qwen3_asr_1.7b
+output_dir: models/speaker_graph/v25_multiscale_speaker_graph/fold_{fold}
+audit:
+  fold_pure: true
+  uses_training_labels: true
+  uses_validation_labels_for_gradient: false
+  uses_test_data: false

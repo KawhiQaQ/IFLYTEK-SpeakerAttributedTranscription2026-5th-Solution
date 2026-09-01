@@ -1,0 +1,31 @@
+name: v92_boundary_metric_full
+description: Full-development boundary-robust CAMPPlus metric with a fixed epoch budget selected from fold-pure CV.
+seed: 3407
+feature_experiment: v25_multiscale_speaker_graph
+feature_fold: 0
+model:
+  scales: 3
+  embedding_dimension: 192
+  hidden_dimension: 256
+  dropout: 0.10
+training:
+  fixed_epochs: 14
+  epoch_selection_source: median_of_fold_pure_best_epochs_21_and_7
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  gradient_clip_norm: 2.0
+  pairs_per_class_per_session: 192
+  node_window_frames: 3
+  node_stride_frames: 2
+  dominant_activity_min: 0.25
+  dominance_ratio_min: 0.55
+  pure_activity_min: 0.70
+  other_activity_max: 0.10
+  feature_noise_std: 0.005
+  scale_mask_probability: 0.08
+  precision: bfloat16
+output_dir: models/speaker_metric/v92_boundary_metric_full
+audit:
+  training_scope: all_official_development
+  uses_test_data: false
+  uses_test_for_model_selection: false

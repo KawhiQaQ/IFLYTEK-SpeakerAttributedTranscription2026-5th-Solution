@@ -1,0 +1,28 @@
+name: v156_contextual_metric_guarded_arbitration
+description: V153 arbitration additionally requiring a fold-pure full-conversation contextual metric decision.
+cv_version: v1
+fold: 0
+base_experiment: v90_moss_v38_novel_fusion
+complementary_experiment: v84_moss_consensus_v20_tracks
+feature_experiment: v134_eres2netv2_multiscale_metric_features
+metric_checkpoint: models/speaker_metric/v135_eres2netv2_boundary_metric_adapter/fold_{fold}/metric_adapter.pt
+node:
+  max_seconds: 1.2
+  max_gap_seconds: 0.6
+arbitration:
+  same_speaker_probability: 0.5
+  secondary_feature_experiment: v25_multiscale_speaker_graph
+  secondary_metric_checkpoint: models/speaker_metric/v36_boundary_robust_metric_adapter/fold_{fold}/metric_adapter.pt
+  purity_checkpoint: models/speaker_purity/v149_dual_encoder_speaker_purity_head/fold_{fold}/purity_head.pt
+  contextual_metric_checkpoint: models/contextual_speaker_metric/v155_dual_encoder_contextual_speaker_metric/fold_{fold}/contextual_metric.pt
+overlap_guard:
+  streaming_experiment: v19_qwen3_sortformer_consistent_turns_capacity_route
+  offline_experiment: v16_qwen3_sortformer_offline_public_capacity_route
+audit:
+  preserves_v90_novel_injection: true
+  dual_static_encoder_consensus: true
+  full_conversation_contextual_metric: true
+  pretrained_overlap_aware: true
+  fold_pure: true
+  uses_validation_labels: false
+  uses_test_data: false

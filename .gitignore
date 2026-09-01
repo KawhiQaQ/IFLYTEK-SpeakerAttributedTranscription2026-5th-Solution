@@ -1,0 +1,50 @@
+# Operating-system and editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+.ssh/
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+
+# Runtime data and large artifacts
+artifacts/
+data/
+models/
+outputs/
+submissions/
+third_party/
+release/
+
+# Internal research workspace. Curated files that are already versioned remain
+# tracked; new experiment files are private by default.
+reports/
+tests/
+configs/experiments/
+configs/deployment/
+configs/final/
+configs/v*.yaml
+scripts/
+docs/RESEARCH_HISTORY.md
+SPEC.md
+CONTRIBUTING.md
+
+# Experiment by-products
+logs/
+tmp/
+*.log

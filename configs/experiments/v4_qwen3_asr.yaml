@@ -1,0 +1,18 @@
+name: v4_qwen3_asr_1.7b
+description: Qwen3-ASR 1.7B with the public Qwen3 forced aligner; development-only single-model ASR experiment.
+cv_version: v1
+fold: 0
+model:
+  checkpoint: models/modelscope/Qwen3-ASR-1.7B
+  forced_aligner: models/modelscope/Qwen3-ForcedAligner-0.6B
+  language: Chinese
+  dtype: bfloat16
+  device_map: cuda:0
+  max_inference_batch_size: 1
+  max_new_tokens: 768
+normalization:
+  lowercase_english: true
+  remove_punctuation: true
+  chinese_character_tokens: true
+  english_word_tokens: true
+  split_multiword_alignment_intervals_uniformly: true

@@ -1,0 +1,26 @@
+name: v174_wespeaker_novel_existence_energy_full
+description: Full-development deployment fit of the frozen V173 regularized WeSpeaker novel-speaker existence energy.
+trained_from_cv_architecture: v173_wespeaker_novel_existence_energy
+seed: 17401
+feature_experiment: v171_wespeaker_resnet34_multiscale_features
+label_source_experiment: v134_eres2netv2_multiscale_metric_features
+real_oof_sources:
+  injected: v90_moss_v38_novel_fusion
+  native: v82_moss_native_substitution_consensus
+  complementary: v38_novel_speaker_hybrid
+checkpoint_path: models/novel_speaker/v174_wespeaker_novel_existence_energy_full/energy.json
+training:
+  pure_activity_min: 0.8
+  other_activity_max: 0.1
+  inverse_regularization: 1.0
+  real_oof_episode_weight: 8.0
+  max_iterations: 1000
+audit:
+  architecture_frozen_from_strict_oof: v173_wespeaker_novel_existence_energy
+  independent_public_speaker_encoder: pyannote/wespeaker-voxceleb-resnet34-LM
+  linear_l2_regularized_energy: true
+  permutation_invariant_cluster_features: true
+  fixed_probability_boundary: 0.5
+  full_development_labels_used_for_final_fit: true
+  test_features_available_during_fit: false
+  uses_test_data_for_training_or_selection: false

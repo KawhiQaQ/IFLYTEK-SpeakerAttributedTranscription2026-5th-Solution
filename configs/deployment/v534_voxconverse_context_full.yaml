@@ -1,0 +1,33 @@
+name: v534_voxconverse_context_full
+description: V534 contextual checkpoint initialized from matched VoxConverse plus official fold-train, then refitted on all 106 official development sessions.
+feature_fold: 0
+seed: 20260901
+primary_feature_experiment: v134_eres2netv2_multiscale_metric_features
+secondary_feature_experiment: v25_multiscale_speaker_graph
+initial_checkpoint_path: models/data_experts/v534_voxconverse_structure_matched_v174_heads/fold_0/contextual_metric.pt
+checkpoint_path: models/data_experts/v534_voxconverse_structure_matched_v174_heads/full/contextual_metric.pt
+model:
+  input_dimension: 576
+  projection_dimension: 128
+  model_dimension: 256
+  output_dimension: 192
+  attention_heads: 4
+  encoder_layers: 3
+  feedforward_dimension: 768
+  dropout: 0.15
+training:
+  device: cuda:0
+  fixed_epochs: 14
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  gradient_clip_norm: 2.0
+  pairs_per_class_per_session: 256
+  pure_activity_min: 0.70
+  other_activity_max: 0.10
+  feature_noise_std: 0.005
+  boundary_loss_weight: 0.10
+  precision: bfloat16
+audit:
+  all_official_development_sessions: true
+  initialized_from_v534_fold0_without_test: true
+  uses_test_data: false

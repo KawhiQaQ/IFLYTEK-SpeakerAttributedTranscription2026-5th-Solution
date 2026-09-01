@@ -1,0 +1,11 @@
+name: v84_moss_consensus_v20_tracks
+description: Deployable V77 four-architecture text assigned to the frozen V20 diarization router tracks.
+cv_version: v1
+fold: 0
+asr_source_experiment: v77_asr_consensus_with_moss
+diarization_source_experiment: v20_diarization_quality_router
+assignment:
+  max_gap_seconds: 0.8
+audit:
+  uses_validation_labels: false
+  uses_test_data: false

@@ -1,0 +1,37 @@
+name: v173_wespeaker_novel_existence_energy
+description: Regularized fold-pure existence energy over invariant multiscale WeSpeaker cluster statistics, guarding novel-role injection before V156.
+cv_version: v1
+fold: 0
+seed: 17301
+sources:
+  refined: v156_contextual_metric_guarded_arbitration
+  injected: v90_moss_v38_novel_fusion
+  native: v82_moss_native_substitution_consensus
+  complementary: v38_novel_speaker_hybrid
+real_oof_sources:
+  injected: v90_moss_v38_novel_fusion
+  native: v82_moss_native_substitution_consensus
+  complementary: v38_novel_speaker_hybrid
+# Fold 2 consumes the two already-frozen OOF source folds. Original fold-0/1
+# retraining keeps its exact single-opposite-fold behavior.
+real_oof_source_folds_by_target:
+  2: [0, 1]
+feature_experiment: v171_wespeaker_resnet34_multiscale_features
+label_source_experiment: v134_eres2netv2_multiscale_metric_features
+checkpoint_path: models/novel_speaker/v173_wespeaker_novel_existence_energy/fold_{fold}/energy.json
+training:
+  pure_activity_min: 0.8
+  other_activity_max: 0.1
+  inverse_regularization: 1.0
+  real_oof_episode_weight: 8.0
+  max_iterations: 1000
+audit:
+  fold_pure: true
+  target_fold_validation_excluded: true
+  independent_public_speaker_encoder: pyannote/wespeaker-voxceleb-resnet34-LM
+  linear_l2_regularized_energy: true
+  permutation_invariant_cluster_features: true
+  opposite_fold_real_episode_identity_labels_only: true
+  fixed_probability_boundary: 0.5
+  uses_validation_labels: false
+  uses_test_data: false

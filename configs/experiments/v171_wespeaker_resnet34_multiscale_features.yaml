@@ -1,0 +1,14 @@
+name: v171_wespeaker_resnet34_multiscale_features
+description: Label-free three-scale features from the independent public WeSpeaker VoxCeleb ResNet34-LM speaker encoder.
+model:
+  source: pyannote/wespeaker-voxceleb-resnet34-LM
+  checkpoint: models/huggingface/pyannote/wespeaker-voxceleb-resnet34-LM/pytorch_model.bin
+features:
+  hop_seconds: 0.4
+  window_seconds: [1.0, 2.0, 4.0]
+  batch_size: 64
+  device: cuda:0
+audit:
+  open_pretrained_model: true
+  label_free_extraction: true
+  uses_test_for_training_or_selection: false

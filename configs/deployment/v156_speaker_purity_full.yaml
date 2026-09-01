@@ -1,0 +1,24 @@
+name: v156_speaker_purity_full
+description: Full-development dual-encoder purity head with the V149 fixed CV budget.
+seed: 20260829
+feature_fold: 0
+primary_feature_experiment: v134_eres2netv2_multiscale_metric_features
+secondary_feature_experiment: v25_multiscale_speaker_graph
+checkpoint_path: models/speaker_purity/v156_speaker_purity_full/purity_head.pt
+model:
+  input_dimension: 576
+  projection_dimension: 96
+  recurrent_dimension: 96
+  recurrent_layers: 2
+  dropout: 0.15
+training:
+  device: cuda:0
+  fixed_epochs: 14
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  feature_noise_std: 0.005
+audit:
+  training_scope: all_official_development
+  fixed_epoch_source: v149_fold_pure_cv
+  uses_test_data: false
+  uses_test_for_model_selection: false

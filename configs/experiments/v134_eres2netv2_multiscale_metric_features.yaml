@@ -1,0 +1,20 @@
+name: v134_eres2netv2_multiscale_metric_features
+description: Fold-pure multiscale ERes2NetV2 features from the 200k-speaker Chinese pretrained encoder.
+cv_version: v1
+fold: 0
+seed: 3407
+features:
+  hop_seconds: 0.4
+  window_seconds: [0.75, 1.5, 3.0]
+  embedding_dimension: 192
+  device: cuda:0
+  embedding_override:
+    architecture: eres2netv2
+    checkpoint: models/modelscope/models/iic--speech_eres2netv2_sv_zh-cn_16k-common/snapshots/master/pretrained_eres2netv2.ckpt
+model:
+  max_speakers: 6
+audit:
+  fold_pure: true
+  uses_training_labels: true
+  uses_validation_labels_for_gradient: false
+  uses_test_data: false

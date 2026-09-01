@@ -1,0 +1,25 @@
+name: v538_voxconverse_context_v174
+description: V174 final-test cascade with V537 as the refined contextual branch.
+cv_architecture: v173_wespeaker_novel_existence_energy
+full_fit: v534_voxconverse_context_full
+sources:
+  refined: outputs/v537_voxconverse_context_v156/test/sessions
+  injected: outputs/v95_moss_acoustic_graph_fusion/test/sessions
+  graph: outputs/v93_boundary_metric_graph_full_test/test/sessions
+  tracks: outputs/v20_diarization_quality_router_submission/test/sessions
+  moss: outputs/test_moss_transcribe_diarize/sessions
+  aed: outputs/test_fireredasr2_aed/sessions
+  qwen: outputs/test_asr_qwen3_1.7b/sessions
+  llm: outputs/test_fireredasr2_llm/sessions
+feature_root: data/speaker_features_label_free/v171_wespeaker_resnet34_multiscale_features/test
+checkpoint_path: models/novel_speaker/v174_wespeaker_novel_existence_energy_full/energy.json
+probability_boundary: 0.5
+output_root: outputs/v538_voxconverse_context_v174/test
+submission_path: submissions/v538_voxconverse_context_v174.seglst.json
+audit_path: submissions/v538_voxconverse_context_v174.audit.json
+audit:
+  architecture_and_boundary_frozen_before_test_feature_extraction: true
+  no_test_labels: true
+  no_test_training: true
+  no_test_model_selection: true
+  zero_candidate_support_action: reject_novel_and_fall_back_to_native

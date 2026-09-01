@@ -1,0 +1,31 @@
+name: v156_eres2netv2_boundary_metric_full
+description: Full-development ERes2NetV2 metric with the V135 fixed CV epoch budget.
+seed: 3407
+feature_experiment: v134_eres2netv2_multiscale_metric_features
+feature_fold: 0
+model:
+  scales: 3
+  embedding_dimension: 192
+  hidden_dimension: 256
+  dropout: 0.10
+training:
+  fixed_epochs: 14
+  epoch_selection_source: frozen_v135_fold_pure_cv_budget
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  gradient_clip_norm: 2.0
+  pairs_per_class_per_session: 192
+  node_window_frames: 3
+  node_stride_frames: 2
+  dominant_activity_min: 0.25
+  dominance_ratio_min: 0.55
+  pure_activity_min: 0.70
+  other_activity_max: 0.10
+  feature_noise_std: 0.005
+  scale_mask_probability: 0.08
+  precision: bfloat16
+output_dir: models/speaker_metric/v156_eres2netv2_boundary_metric_full
+audit:
+  training_scope: all_official_development
+  uses_test_data: false
+  uses_test_for_model_selection: false

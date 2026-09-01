@@ -1,0 +1,27 @@
+name: v19_qwen3_sortformer_consistent_turns_submission
+description: Full-development V14 Sortformer with conservative CAMPPlus turn identity refinement and 3D-Speaker capacity fallback.
+asr_source_experiment: test_asr_qwen3_1.7b
+speaker_count_model: models/speaker_count/rf_v1_fold_full.joblib
+speaker_count_features: reports/test_speaker_count_features_v1.json
+sortformer:
+  checkpoint: models/sortformer_finetune/v14_v2_1_synthetic/fold_full/sortformer_fold_full.nemo
+  max_speakers: 4
+  device: cuda:0
+  batch_size: 1
+embedding:
+  toolkit: modelscope/3D-Speaker
+  model: iic/speech_campplus_sv_zh_en_16k-common_advanced
+  revision: v1.0.0
+  model_cache_dir: models/modelscope/3dspeaker
+  device: cuda:0
+  min_pure_seconds: 0.5
+  require_count_agreement: true
+fallback_diarization:
+  toolkit: modelscope/3D-Speaker
+  embedding_model: iic/speech_campplus_sv_zh_en_16k-common_advanced
+  vad_model: iic/speech_fsmn_vad_zh-cn-16k-common-pytorch
+  device: cuda:0
+assignment:
+  max_gap_seconds: 0.8
+  token_timestamp_source: Qwen3-ForcedAligner-0.6B
+  use_predicted_arrival_slots: false

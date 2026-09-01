@@ -1,0 +1,33 @@
+name: v156_contextual_speaker_metric_full
+description: Full-development contextual speaker metric with the V155 fixed CV budget.
+seed: 20260829
+feature_fold: 0
+primary_feature_experiment: v134_eres2netv2_multiscale_metric_features
+secondary_feature_experiment: v25_multiscale_speaker_graph
+checkpoint_path: models/contextual_speaker_metric/v156_contextual_speaker_metric_full/contextual_metric.pt
+model:
+  input_dimension: 576
+  projection_dimension: 128
+  model_dimension: 256
+  output_dimension: 192
+  attention_heads: 4
+  encoder_layers: 3
+  feedforward_dimension: 768
+  dropout: 0.15
+training:
+  device: cuda:0
+  fixed_epochs: 14
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  gradient_clip_norm: 2.0
+  pairs_per_class_per_session: 256
+  pure_activity_min: 0.70
+  other_activity_max: 0.10
+  feature_noise_std: 0.005
+  boundary_loss_weight: 0.10
+  precision: bfloat16
+audit:
+  training_scope: all_official_development
+  fixed_epoch_source: v155_fold_pure_cv
+  uses_test_data: false
+  uses_test_for_model_selection: false

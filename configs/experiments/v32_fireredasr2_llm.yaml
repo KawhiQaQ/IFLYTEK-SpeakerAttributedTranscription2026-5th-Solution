@@ -1,0 +1,23 @@
+name: v32_fireredasr2_llm
+description: FireRedASR2-LLM strong text branch aligned to independent AED native timestamps.
+cv_version: v1
+fold: 0
+model:
+  repo: third_party/FireRedASR2S
+  directory: models/modelscope/FireRedASR2-LLM
+  type: llm
+  license: Apache-2.0
+timestamp_source_experiment: v28_fireredasr2_aed
+inference:
+  use_gpu: true
+  use_half: true
+  beam_size: 3
+  decode_max_len: 0
+  decode_min_len: 0
+  repetition_penalty: 1.0
+  llm_length_penalty: 0.0
+  temperature: 1.0
+audit:
+  public_checkpoint: true
+  uses_validation_labels: false
+  uses_test_data: false

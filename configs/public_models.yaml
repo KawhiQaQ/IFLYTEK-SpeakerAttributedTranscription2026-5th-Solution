@@ -1,0 +1,75 @@
+schema_version: 1
+notes:
+  - Public checkpoints are downloaded on demand and are not stored in Git.
+  - SHA-256 values are from the exact files used for final inference when available.
+models:
+  - name: Qwen3-ASR-1.7B
+    source: huggingface
+    model_id: Qwen/Qwen3-ASR-1.7B
+    local_dir: models/modelscope/Qwen3-ASR-1.7B
+    files:
+      model-00001-of-00002.safetensors: a4cd1f1a04d90b757dc7f7dd26254e69a013b19e80efe590a83c6a3bde8608d6
+      model-00002-of-00002.safetensors: 6e0b9d9e09e2e0238e7ef3cc8a484ab387e91b90f1900bedf88bc92d7929ccfc
+  - name: Qwen3-ForcedAligner-0.6B
+    source: huggingface
+    model_id: Qwen/Qwen3-ForcedAligner-0.6B
+    local_dir: models/modelscope/Qwen3-ForcedAligner-0.6B
+    files:
+      model.safetensors: 47831d0e82f96b20e9034dba01a075ee06436654719f6a68289e49f1b65ce0e7
+  - name: FireRedASR2-AED
+    source: huggingface
+    model_id: FireRedTeam/FireRedASR2-AED
+    modelscope_id: xukaituo/FireRedASR2-AED
+    local_dir: models/modelscope/FireRedASR2-AED
+    files:
+      model.pth.tar: 4677cbd30988d63ed3e777f6a42a1e5260a3865317f6e15e488bef40954f7054
+  - name: FireRedASR2-LLM
+    source: huggingface
+    model_id: FireRedTeam/FireRedASR2-LLM
+    modelscope_id: xukaituo/FireRedASR2-LLM
+    local_dir: models/modelscope/FireRedASR2-LLM
+    recorded_checkpoint_sha256: 6ebd76ce1799e72c3180cf73eca036fee338630a95c0069361ea91c894544bcd
+  - name: MOSS-Transcribe-Diarize
+    source: huggingface
+    model_id: OpenMOSS-Team/MOSS-Transcribe-Diarize
+    local_dir: models/huggingface/OpenMOSS-Team/MOSS-Transcribe-Diarize
+    files:
+      model-00000-of-00001.safetensors: 9a0ceb4ab7330357db3ff583dba8d83625d5b733b00e1d55d6970e11b07026c4
+  - name: Sortformer-offline-v1
+    source: huggingface
+    model_id: nvidia/diar_sortformer_4spk-v1
+    local_dir: models/huggingface/nvidia/diar_sortformer_4spk-v1
+    files:
+      diar_sortformer_4spk-v1.nemo: bc74dfd8ca314240abcdc7e2949901eeaa72947a04ce1fab893e373d81f1e689
+  - name: Sortformer-streaming-v2.1
+    source: huggingface
+    model_id: nvidia/diar_streaming_sortformer_4spk-v2.1
+    local_dir: models/huggingface/nvidia/diar_streaming_sortformer_4spk-v2.1
+    files:
+      diar_streaming_sortformer_4spk-v2.1.nemo: 8abd32832159c6ac1148c926b7276f35ba34582c444e559dce1f1253fea42ef8
+  - name: WeSpeaker-ResNet34-LM
+    source: huggingface
+    model_id: pyannote/wespeaker-voxceleb-resnet34-LM
+    local_dir: models/huggingface/pyannote/wespeaker-voxceleb-resnet34-LM
+    files:
+      pytorch_model.bin: 366edf44f4c80889a3eb7a9d7bdf02c4aede3127f7dd15e274dcdb826b143c56
+  - name: ERes2NetV2-200k-speaker
+    source: modelscope
+    model_id: iic/speech_eres2netv2_sv_zh-cn_16k-common
+    local_dir: models/modelscope/models/iic--speech_eres2netv2_sv_zh-cn_16k-common/snapshots/master
+    files:
+      pretrained_eres2netv2.ckpt: 0eb4057106b2573dd7b132cf0c36273ab29afd192c1610f80baa9c556dbb963c
+  - name: CAMPPlus
+    source: modelscope
+    model_id: iic/speech_campplus_sv_zh_en_16k-common_advanced
+    revision: v1.0.0
+    local_dir: models/modelscope/3dspeaker/models/iic--speech_campplus_sv_zh_en_16k-common_advanced/snapshots/v1.0.0
+    files:
+      campplus_cn_en_common.pt: 92f29b94e6948786a26778c9e302525d185bb08c8b9f5252ed98776902840199
+  - name: FSMN-VAD
+    source: modelscope
+    model_id: iic/speech_fsmn_vad_zh-cn-16k-common-pytorch
+    revision: v2.0.4
+    local_dir: models/modelscope/3dspeaker/models/iic--speech_fsmn_vad_zh-cn-16k-common-pytorch/snapshots/v2.0.4
+    files:
+      model.pt: b3be75be477f0780277f3bae0fe489f48718f585f3a6e45d7dd1fbb1a4255fc5

@@ -1,0 +1,68 @@
+name: v534_voxconverse_structure_matched_v174_heads
+description: Exact V174 contextual and purity heads pretrained on 48 aggregate-structure-matched public VoxConverse windows, then adapted on official fold-train sessions.
+seed: 20260901
+device: cuda:0
+output_root: models/data_experts/v534_voxconverse_structure_matched_v174_heads/fold_{fold}
+external_pretraining:
+  dataset_root: data/external/voxconverse_test_matched
+  primary_feature_root: data/external/voxconverse_test_matched/features/eres2netv2
+  secondary_feature_root: data/external/voxconverse_test_matched/features/campplus
+  dataset_tag: voxconverse
+  dataset_description: VoxConverse v0.3 public test labels, 48 aggregate-structure-matched 42-second windows
+  allow_public_external_test_split: true
+  audit_requirements:
+    source_split: test (public labels)
+    competition_test_labels_used: false
+    competition_test_pseudo_labels_used: false
+    competition_test_audio_used_for_gradient: false
+official:
+  primary_feature_experiment: v134_eres2netv2_multiscale_metric_features
+  secondary_feature_experiment: v25_multiscale_speaker_graph
+contextual:
+  model:
+    input_dimension: 576
+    projection_dimension: 128
+    model_dimension: 256
+    output_dimension: 192
+    attention_heads: 4
+    encoder_layers: 3
+    feedforward_dimension: 768
+    dropout: 0.15
+  external_epochs: 4
+  official_epochs: 14
+  window_frames: 128
+  windows_per_session: 1
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  gradient_clip_norm: 2.0
+  pairs_per_class_per_session: 256
+  pure_activity_min: 0.70
+  other_activity_max: 0.10
+  feature_noise_std: 0.005
+  boundary_loss_weight: 0.10
+  precision: bfloat16
+purity:
+  model:
+    input_dimension: 576
+    projection_dimension: 96
+    recurrent_dimension: 96
+    recurrent_layers: 2
+    dropout: 0.15
+  external_epochs: 4
+  official_epochs: 14
+  window_frames: 128
+  windows_per_session: 1
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  gradient_clip_norm: 5.0
+  feature_noise_std: 0.005
+  pure_activity_min: 0.70
+  other_activity_max: 0.10
+audit:
+  exact_v155_and_v149_architectures: true
+  external_selection_uses_unlabelled_test_aggregate_only: true
+  external_source_license: CC BY 4.0
+  fold_pure_official_adaptation: true
+  validation_labels_excluded_from_gradient: true
+  competition_test_samples_excluded_from_gradient: true
+  competition_test_pseudo_labels: false
