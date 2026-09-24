@@ -20,7 +20,7 @@ arbitration:
   secondary_feature_experiment: v25_multiscale_speaker_graph
   secondary_metric_checkpoint: models/speaker_metric/v92_boundary_metric_full/metric_adapter.pt
   purity_checkpoint: models/speaker_purity/v156_speaker_purity_full/purity_head.pt
-  contextual_metric_checkpoint: models/data_experts/v534_voxconverse_structure_matched_v174_heads/full/contextual_metric.pt
+  contextual_metric_checkpoint: models/data_experts/contextual_speaker_transformer/full/contextual_metric.pt
 overlap_guard:
   streaming_experiment: v19_qwen3_sortformer_consistent_turns_capacity_route
   offline_experiment: v16_qwen3_sortformer_offline_public_capacity_route

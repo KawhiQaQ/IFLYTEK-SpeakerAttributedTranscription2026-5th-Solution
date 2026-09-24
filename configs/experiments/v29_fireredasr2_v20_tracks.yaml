@@ -1,0 +1,11 @@
+name: v29_fireredasr2_v20_tracks
+description: FireRedASR2-AED timestamped text assigned to frozen V20 label-free speaker tracks.
+cv_version: v1
+fold: 0
+asr_source_experiment: v28_fireredasr2_aed
+diarization_source_experiment: v20_diarization_quality_router
+assignment:
+  max_gap_seconds: 0.8
+audit:
+  uses_validation_labels: false
+  uses_test_data: false

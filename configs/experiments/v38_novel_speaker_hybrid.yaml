@@ -1,0 +1,13 @@
+name: v38_novel_speaker_hybrid
+description: Conservative architecture fusion that preserves V29 assignments and injects only unmatched new V37 speaker clusters.
+cv_version: v1
+fold: 0
+asr_source_experiment: v28_fireredasr2_aed
+base_experiment: v29_fireredasr2_v20_tracks
+graph_experiment: v37_boundary_metric_graph_firered
+assignment:
+  max_gap_seconds: 0.8
+audit:
+  fold_pure: true
+  uses_validation_labels: false
+  uses_test_data: false

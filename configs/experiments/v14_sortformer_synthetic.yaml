@@ -1,0 +1,23 @@
+name: v14_sortformer_fold_pure_synthetic
+description: Deterministic four-speaker overlap mixtures built only from clean utterances in the current fold's training sessions.
+cv_version: v1
+seed: 20260827
+fold: 0
+output_dir: outputs/augmentation/v14_sortformer_fold_pure_synthetic/fold_{fold}
+mixtures:
+  count: 24
+  speakers: 4
+  duration_seconds: 45.0
+  target_speech_seconds_per_speaker: 9.5
+  minimum_pool_seconds: 6.0
+  minimum_clip_seconds: 0.35
+  maximum_clip_seconds: 6.0
+  high_source_speaker_threshold: 4
+  minimum_high_source_speakers_per_mix: 2
+  overlap_probability: 0.40
+  overlap_seconds_min: 0.15
+  overlap_seconds_max: 0.80
+  gap_seconds_min: 0.08
+  gap_seconds_max: 0.30
+  fade_seconds: 0.01
+  target_clip_rms: 0.055

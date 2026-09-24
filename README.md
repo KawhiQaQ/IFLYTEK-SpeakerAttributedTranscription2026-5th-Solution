@@ -18,7 +18,7 @@ The proposed system achieves **0.14727 leaderboard tcpWER** by combining multi-A
 - **Complementary transcription models:** Qwen3-ASR, FireRedASR2-AED, FireRedASR2-LLM, and MOSS-Transcribe-Diarize provide diverse lexical and temporal hypotheses.
 - **Multi-view speaker representations:** streaming/offline Sortformer tracks are refined with CAMPPlus, ERes2NetV2, and WeSpeaker embeddings.
 - **Context-aware role modeling:** a dual-encoder Transformer uses conversation-level context to resolve locally ambiguous speaker assignments.
-- **Distribution-matched external data:** a small public VoxConverse subset is selected using aggregate conversation statistics and used without competition test labels or pseudo-labels.
+- **Fixed public external data:** the contextual speaker model is initialized on 48 reproducible, publicly available VoxConverse windows with RTTM annotations.
 - **Fold-pure evaluation:** every supervised component excludes the evaluated fold, and model selection uses pooled tcpWER error counts.
 
 ## Results
@@ -47,11 +47,11 @@ The complete formulation, network design, objectives, and inference algorithm ar
 
 ## Checkpoints
 
-Competition-trained checkpoints will be released separately:
+The eight competition-trained artifacts used by the best submission are available here:
 
 | Checkpoint | Download | Extraction code |
 |---|---|---|
-| Context-aware speaker transcription models | [Baidu Netdisk](https://pan.baidu.com/s/1TZNc5W9h0CyZPdFnph8RfA?pwd=63pj) | `63pj` |
+| CAST best-system checkpoints (8 artifacts) | [Baidu Netdisk](https://pan.baidu.com/s/1TZNc5W9h0CyZPdFnph8RfA?pwd=63pj) | `63pj` |
 
 After downloading `CAST_checkpoints`, merge its `models/` directory into the
 repository root. The checkpoint paths are already arranged to match the
@@ -59,6 +59,8 @@ released configurations:
 
 ```bash
 cp -a /path/to/CAST_checkpoints/models/. ./models/
+python scripts/normalize_checkpoint_layout.py .
+python scripts/verify_release.py .
 ```
 
 Public ASR, diarization, and speaker encoders can be downloaded from their official sources:
@@ -81,12 +83,19 @@ The exact public model IDs and expected files are listed in [`configs/public_mod
 The recorded environment uses Python 3.10, PyTorch 2.11.0+cu128, CUDA 12.8, and one RTX 3090.
 
 ```bash
-git clone git@github.com:KawhiQaQ/IFLYTEK-SpeakerAttributedTranscription2026-5th-Solution.git
+git clone https://github.com/KawhiQaQ/IFLYTEK-SpeakerAttributedTranscription2026-5th-Solution.git
 cd IFLYTEK-SpeakerAttributedTranscription2026-5th-Solution
 
 conda env create -f configs/environment.yml
-conda activate xunfei-s2
+conda activate cast
+bash scripts/install_runtime.sh
+conda deactivate && conda activate cast
 ```
+
+The installer creates a separate `.venv-moss/` environment for
+MOSS-Transcribe-Diarize so that its Transformers version does not conflict with
+Qwen3-ASR. At least 80 GB of free disk space is recommended for public models
+and generated caches.
 
 ## Data Preparation
 
@@ -99,22 +108,57 @@ data/
 │   └── ref.seglst.json
 ├── test/
 │   └── wav/*.wav
-└── sample_submission/*.json
+└── sample_submission/
+    └── submit_sample.json
+```
+
+With the original competition archives, the layout can be created directly:
+
+```bash
+mkdir -p data/sample_submission
+unzip dev.zip -d data
+unzip test.zip -d data
+unzip -j submit_sample.zip submit_sample.json -d data/sample_submission
+python scripts/prepare_official_data.py .
 ```
 
 The official dataset is not redistributed. External-data and pretrained-model provenance are documented in [Data and Model Provenance](docs/DATA_MODEL_PROVENANCE.md) and [Third-Party Notices](THIRD_PARTY_NOTICES.md).
 
-## Training and Inference
+## Inference with the Best Checkpoints
 
-The implementation is organized by model component rather than by leaderboard experiment. The main stages are:
+After installing the environment, arranging the official data, and copying the
+released checkpoints, run:
 
-- ASR inference with Qwen3-ASR, FireRedASR2, and MOSS-Transcribe-Diarize;
-- Sortformer diarization and multiscale speaker-feature extraction;
-- acoustic metric and speaker-purity training;
-- context-aware speaker Transformer training;
-- novel-speaker verification and final speaker-attributed transcription.
+```bash
+bash test.sh
+```
 
-Detailed commands, expected inputs, and stage dependencies are provided in the [Reproducibility Guide](docs/REPRODUCIBILITY.md). The trained checkpoint download will be inserted once the Baidu Netdisk upload is available.
+Missing public pretrained models are downloaded automatically. The complete
+frozen inference graph writes the final UTF-8 SegLST prediction to
+`submissions/final_solution.seglst.json`.
+
+## Full Training
+
+To rebuild every learned component with the released data manifest, model
+architecture, random seeds, and fixed epoch budgets, run:
+
+```bash
+bash train.sh
+```
+
+The script prepares the fixed public VoxConverse subset, extracts all acoustic
+features, trains the speaker-count, metric, purity, contextual, and
+novel-speaker models, generates deterministic Sortformer mixtures, and adapts
+the streaming Sortformer. After training, run:
+
+```bash
+CAST_SKIP_PUBLIC_MODEL_DOWNLOAD=1 \
+bash test.sh --allow-retrained-checkpoints
+```
+
+Exact commands, stage order, resumable execution, inputs, outputs, and frozen
+configuration paths are provided in the
+[Reproducibility Guide](docs/REPRODUCIBILITY.md).
 
 ## Evaluation
 
@@ -133,11 +177,17 @@ The promotion metric is pooled fold-0/fold-1 tcpWER rather than the unweighted a
 
 ```text
 configs/                 environment, public-model, CV, and model configurations
-docs/                    method, results, validation, provenance, and reproduction
+docs/                    method, validation, provenance, and reproduction
+manifests/               fixed public external-data manifest
+reference/               released reference prediction and checksum target
 scripts/                 training, inference, evaluation, and submission code
+third_party/             exact source snapshots required by the pipeline
+train.sh                 complete training entry point
+test.sh                  complete inference entry point
 ```
 
-Runtime directories such as `data/`, `models/`, `outputs/`, `submissions/`, and `third_party/` are created locally and ignored by Git.
+Runtime directories such as `data/`, `models/`, `outputs/`, and `submissions/`
+are created locally and ignored by Git.
 
 ## License
 

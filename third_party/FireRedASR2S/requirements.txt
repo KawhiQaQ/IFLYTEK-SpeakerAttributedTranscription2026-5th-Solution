@@ -1,0 +1,12 @@
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch==2.1.0+cu118
+torchaudio==2.1.0+cu118
+transformers==4.51.3
+numpy==1.26.1
+cn2an==0.5.23
+kaldiio==2.18.0
+kaldi_native_fbank==1.15
+sentencepiece==0.1.99
+soundfile==0.12.1
+textgrid
+peft>=0.13.2

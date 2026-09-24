@@ -28,13 +28,17 @@ models:
     model_id: FireRedTeam/FireRedASR2-LLM
     modelscope_id: xukaituo/FireRedASR2-LLM
     local_dir: models/modelscope/FireRedASR2-LLM
-    recorded_checkpoint_sha256: 6ebd76ce1799e72c3180cf73eca036fee338630a95c0069361ea91c894544bcd
+    files:
+      model.pth.tar: 6ebd76ce1799e72c3180cf73eca036fee338630a95c0069361ea91c894544bcd
   - name: MOSS-Transcribe-Diarize
     source: huggingface
     model_id: OpenMOSS-Team/MOSS-Transcribe-Diarize
     local_dir: models/huggingface/OpenMOSS-Team/MOSS-Transcribe-Diarize
     files:
       model-00000-of-00001.safetensors: 9a0ceb4ab7330357db3ff583dba8d83625d5b733b00e1d55d6970e11b07026c4
+      configuration_moss_transcribe_diarize.py: b4d12b0f4609af69b61c2fe3aa5fbaf476af22278369e4540745bc47d1d37892
+      modeling_moss_transcribe_diarize.py: 0988f3c0a9c1a0187b49b249c41afec6b6bb7dedb41869c528ca555bae39ff6c
+      processing_moss_transcribe_diarize.py: 86383310dd3ebf8e372c9bb09eb5d9b72ed226d01478097c1fd566a2a9d2e667
   - name: Sortformer-offline-v1
     source: huggingface
     model_id: nvidia/diar_sortformer_4spk-v1

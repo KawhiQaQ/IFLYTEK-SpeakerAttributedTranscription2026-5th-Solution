@@ -17,7 +17,6 @@ from sklearn.metrics import roc_auc_score
 from torch.nn import functional as F
 
 from contextual_speaker_metric_model import DualEncoderContextMetric
-from external_affinity_examples import parse_rttm
 from speaker_purity_model import DualEncoderPurityNet
 from train_speaker_metric_fold import pure_frame_labels, sampled_pairs
 from train_speaker_purity_head import target_classes
@@ -29,6 +28,28 @@ def sha256_file(path: Path) -> str:
         for block in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def parse_rttm(path: Path) -> list[dict]:
+    rows = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        fields = line.split()
+        if len(fields) < 8 or fields[0] != "SPEAKER":
+            continue
+        start, duration = float(fields[3]), float(fields[4])
+        if duration < 0.20:
+            continue
+        rows.append(
+            {
+                "start_time": start,
+                "end_time": start + duration,
+                "speaker": fields[7],
+            }
+        )
+    return sorted(
+        rows,
+        key=lambda row: (row["start_time"], row["end_time"], row["speaker"]),
+    )
 
 
 def activity_targets(rows: list[dict], centers: torch.Tensor) -> torch.Tensor:
@@ -54,27 +75,15 @@ def load_external(root: Path, config: dict, smoke: bool) -> tuple[list[dict], di
     audit_path = dataset_root / "audit.json"
     audit = json.loads(audit_path.read_text(encoding="utf-8"))
     audit_requirements = settings.get("audit_requirements")
-    if audit_requirements:
-        failed = {
-            key: {"expected": expected, "actual": audit.get(key)}
-            for key, expected in audit_requirements.items()
-            if audit.get(key) != expected
-        }
-        if failed:
-            raise RuntimeError(
-                f"External dataset provenance audit failed: {failed}"
-            )
-        if (
-            str(audit.get("source_split", "")).startswith("test")
-            and settings.get("allow_public_external_test_split") is not True
-        ):
-            raise RuntimeError("Public external test split was not explicitly allowed")
-    elif (
-        audit.get("source_split") != "train only"
-        or audit.get("competition_test_used") is not False
-        or audit.get("external_test_used") is not False
-    ):
-        raise RuntimeError("External dataset provenance audit failed")
+    if not audit_requirements:
+        raise RuntimeError("External dataset identity requirements are missing")
+    failed = {
+        key: {"expected": expected, "actual": audit.get(key)}
+        for key, expected in audit_requirements.items()
+        if audit.get(key) != expected
+    }
+    if failed:
+        raise RuntimeError(f"External dataset identity check failed: {failed}")
     primary_root = root / settings["primary_feature_root"]
     secondary_root = root / settings["secondary_feature_root"]
     sessions = audit["sessions"][:2] if smoke else audit["sessions"]

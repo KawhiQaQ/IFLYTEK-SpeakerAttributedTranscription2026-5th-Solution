@@ -21,6 +21,7 @@ __pycache__/
 .coverage
 htmlcov/
 .venv/
+.venv-moss/
 
 # Runtime data and large artifacts
 artifacts/
@@ -28,21 +29,19 @@ data/
 models/
 outputs/
 submissions/
-third_party/
 release/
+prediction_result/
+user_data/
 
-# Internal research workspace. Curated files that are already versioned remain
-# tracked; new experiment files are private by default.
+# Internal research workspace and local release packages
 reports/
 tests/
-configs/experiments/
-configs/deployment/
-configs/final/
-configs/v*.yaml
-scripts/
 docs/RESEARCH_HISTORY.md
 SPEC.md
 CONTRIBUTING.md
+tijiao/
+kawhi00.zip
+科大讯飞-代码审核规范.pdf
 
 # Experiment by-products
 logs/

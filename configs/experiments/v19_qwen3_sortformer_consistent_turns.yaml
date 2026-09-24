@@ -1,0 +1,24 @@
+name: v19_qwen3_sortformer_consistent_turns_capacity_route
+description: V14 with CAMPPlus turn identity refinement only when the independently estimated cluster count agrees with Sortformer active-slot cardinality.
+cv_version: v1
+fold: 0
+asr_source_experiment: v4_qwen3_asr_1.7b
+fallback_experiment: v4_qwen3_3dspeaker_count_rf
+speaker_count_model: models/speaker_count/rf_v1_fold_{fold}.joblib
+speaker_count_features: reports/speaker_count_features_v1.json
+sortformer:
+  checkpoint: models/sortformer_finetune/v14_v2_1_synthetic/fold_{fold}/sortformer_fold_{fold}.nemo
+  max_speakers: 4
+  device: cuda:0
+  batch_size: 1
+embedding:
+  toolkit: modelscope/3D-Speaker
+  model: iic/speech_campplus_sv_zh_en_16k-common_advanced
+  revision: v1.0.0
+  model_cache_dir: models/modelscope/3dspeaker
+  device: cuda:0
+  min_pure_seconds: 0.5
+  require_count_agreement: true
+assignment:
+  max_gap_seconds: 0.8
+  token_timestamp_source: Qwen3-ForcedAligner-0.6B

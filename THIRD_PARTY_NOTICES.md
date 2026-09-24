@@ -6,16 +6,16 @@ This project composes public datasets, pretrained models, and toolkits. They are
 
 | Component | Upstream | Frozen source revision | License |
 |---|---|---|---|
-| MOSS-Transcribe-Diarize | https://github.com/OpenMOSS/MOSS-Transcribe-Diarize | `cb765f2b0fe6f7a298aa2002e2281ae693d1f3c3` | Apache-2.0 |
+| MOSS-Transcribe-Diarize | https://github.com/OpenMOSS/MOSS-Transcribe-Diarize | `cb765f2b0fe6f7a298aa2002e2281ae693d1f3c3` with a documented import fallback; executed with Transformers 5.16.1 | Apache-2.0 |
 | FireRedASR2S | https://github.com/FireRedTeam/FireRedASR2S | `4e7d9aaf4482a47cec1724807026b9b151926eb5` | Apache-2.0 |
-| WeSpeaker | https://github.com/wenet-e2e/wespeaker | `dfa741957e5c11f477623b6e583d67d0af25ee88` | Apache-2.0 |
 | 3D-Speaker | https://github.com/modelscope/3D-Speaker | speaker embedding and fallback diarization toolkit | Apache-2.0 |
+| DiariZen / vendored pyannote.audio | https://github.com/BUTSpeechFIT/DiariZen | `844f5555b0a98acd0931511fc641a8c5b8ba92c7` | MIT |
 | MeetEval | https://github.com/fgnt/meeteval | installed as `meeteval==0.4.3` | MIT |
 
 ## Data
 
 - The official competition dataset is governed by the competition terms and is not redistributed.
-- VoxConverse v0.3 is released under CC BY 4.0; original video copyright remains with its owners. The exact selected-window provenance is recorded in `data/external/voxconverse_test_matched/audit.json` after restoring the runtime bundle.
+- VoxConverse v0.3 is released under CC BY 4.0; original video copyright remains with its owners. The exact fixed-window provenance is recorded in `manifests/voxconverse_fixed_48.json`.
 
 ## Models
 

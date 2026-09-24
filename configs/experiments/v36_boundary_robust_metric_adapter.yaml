@@ -1,0 +1,33 @@
+name: v36_boundary_robust_metric_adapter
+description: Fold-pure residual CAMPPlus metric trained on 1.2-second aggregate nodes including realistic boundary contamination.
+cv_version: v1
+fold: 0
+seed: 3407
+feature_experiment: v25_multiscale_speaker_graph
+model:
+  scales: 3
+  embedding_dimension: 192
+  hidden_dimension: 256
+  dropout: 0.10
+training:
+  max_epochs: 40
+  patience: 8
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  gradient_clip_norm: 2.0
+  pairs_per_class_per_session: 192
+  node_window_frames: 3
+  node_stride_frames: 2
+  dominant_activity_min: 0.25
+  dominance_ratio_min: 0.55
+  pure_activity_min: 0.70
+  other_activity_max: 0.10
+  feature_noise_std: 0.005
+  scale_mask_probability: 0.08
+  precision: bfloat16
+output_dir: models/speaker_metric/v36_boundary_robust_metric_adapter/fold_{fold}
+audit:
+  fold_pure: true
+  uses_training_labels: true
+  uses_validation_labels_for_gradient: false
+  uses_test_data: false

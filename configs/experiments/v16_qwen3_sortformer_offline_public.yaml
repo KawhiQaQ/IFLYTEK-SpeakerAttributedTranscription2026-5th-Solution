@@ -1,0 +1,17 @@
+name: v16_qwen3_sortformer_offline_public_capacity_route
+description: Qwen3-ASR plus the public offline Sortformer v1 checkpoint for whole-session speaker consistency, retaining the frozen V4 fallback above four predicted speakers.
+cv_version: v1
+fold: 0
+asr_source_experiment: v4_qwen3_asr_1.7b
+fallback_experiment: v4_qwen3_3dspeaker_count_rf
+speaker_count_model: models/speaker_count/rf_v1_fold_{fold}.joblib
+speaker_count_features: reports/speaker_count_features_v1.json
+sortformer:
+  checkpoint: models/huggingface/nvidia/diar_sortformer_4spk-v1/diar_sortformer_4spk-v1.nemo
+  max_speakers: 4
+  device: cuda:0
+  batch_size: 1
+assignment:
+  max_gap_seconds: 0.8
+  token_timestamp_source: Qwen3-ForcedAligner-0.6B
+  use_predicted_arrival_slots: false

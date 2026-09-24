@@ -1,0 +1,24 @@
+name: v14_streaming_sortformer_v2_1_synthetic_finetune
+description: V9 fine-tuning plus one deterministic fold-pure batch of four-speaker overlap mixtures.
+cv_version: v1
+fold: 0
+base_checkpoint: models/huggingface/nvidia/diar_streaming_sortformer_4spk-v2.1/diar_streaming_sortformer_4spk-v2.1.nemo
+output_checkpoint: models/sortformer_finetune/v14_v2_1_synthetic/fold_{fold}/sortformer_fold_{fold}.nemo
+data:
+  max_speakers: 4
+  session_len_seconds: 45
+  batch_size: 2
+  num_workers: 4
+augmentation:
+  manifest: outputs/augmentation/v14_sortformer_fold_pure_synthetic/fold_{fold}/manifest.jsonl
+  audit: outputs/augmentation/v14_sortformer_fold_pure_synthetic/fold_{fold}/audit.json
+training:
+  freeze_acoustic_encoder: true
+  max_epochs: 5
+  learning_rate: 0.00002
+  warmup_steps: 10
+  precision: bf16-mixed
+  accelerator: gpu
+  devices: 1
+  gradient_clip_val: 1.0
+  log_every_n_steps: 1

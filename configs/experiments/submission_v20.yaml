@@ -1,5 +1,5 @@
 name: v20_diarization_quality_router_submission
-description: Final label-free CAMPPlus coherence routing between full V19 streaming and public V16 offline test candidates.
+description: CAMPPlus coherence routing between streaming and offline diarization candidates.
 streaming_experiment: v19_qwen3_sortformer_consistent_turns_submission
 offline_experiment: v16_qwen3_sortformer_offline_public_submission
 submission_path: submissions/v20_third_submission.seglst.json

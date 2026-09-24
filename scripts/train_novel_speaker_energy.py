@@ -16,7 +16,6 @@ from sklearn.preprocessing import StandardScaler
 
 from novel_speaker_energy_features import FEATURE_NAMES, energy_features, multiscale_embeddings
 from run_partition_quality_gate import frame_labels
-from target_domain_novel_energy import conversation_domain, domain_feature_names
 from train_speaker_metric_fold import pure_frame_labels
 
 
@@ -65,46 +64,11 @@ def main() -> None:
         f"data/speaker_graph/{config['label_source_experiment']}/fold_{fold}/train"
     )
     training = config["training"]
-    domain_config = config.get("target_domain_conditioning")
-    domain_by_session: dict[str, torch.Tensor] = {}
-    domain_mean = domain_scale = target_domain = None
-    domain_weights: dict[str, float] = {}
     feature_names = list(FEATURE_NAMES)
-    if domain_config:
-        prediction_root = root / str(domain_config["dev_prediction_root"])
-        descriptor_ids = sorted(set(fold_train_sessions) | set(validation_sessions))
-        domain_by_session = {
-            session_id: conversation_domain(
-                prediction_root / f"{session_id}.json",
-                feature_root / f"{session_id}.pt",
-            )
-            for session_id in descriptor_ids
-        }
-        source_values = torch.stack([domain_by_session[session_id] for session_id in fold_train_sessions])
-        domain_mean = source_values.mean(0)
-        domain_scale = source_values.std(0).clamp_min(0.05)
-        target_domain = (
-            torch.stack([domain_by_session[session_id] for session_id in validation_sessions]).mean(0)
-            - domain_mean
-        ) / domain_scale
-        bandwidth = float(domain_config["weight_bandwidth"])
-        minimum = float(domain_config["minimum_weight"])
-        raw_weights = {}
-        for session_id in fold_train_sessions:
-            standardized = (domain_by_session[session_id] - domain_mean) / domain_scale
-            distance = float(((standardized - target_domain) ** 2).mean().sqrt())
-            raw_weights[session_id] = max(minimum, float(np.exp(-0.5 * (distance / bandwidth) ** 2)))
-        normalizer = sum(raw_weights.values()) / len(raw_weights)
-        domain_weights = {key: value / normalizer for key, value in raw_weights.items()}
-        feature_names.extend(domain_feature_names())
 
     def model_features(values: torch.Tensor, session_id: str) -> list[float]:
-        result = values.float()
-        if domain_config:
-            assert domain_mean is not None and domain_scale is not None and target_domain is not None
-            session_domain = (domain_by_session[session_id] - domain_mean) / domain_scale
-            result = torch.cat([result, session_domain, target_domain, session_domain - target_domain])
-        return result.tolist()
+        del session_id
+        return values.float().tolist()
 
     rows: list[list[float]] = []
     targets: list[int] = []
@@ -140,7 +104,7 @@ def main() -> None:
                 continue
             rows.append(model_features(energy_features(embeddings, candidate, base), session_id))
             targets.append(1)
-            weights.append(domain_weights.get(session_id, 1.0))
+            weights.append(1.0)
             synthetic_count += 1
             if len(candidate_indices) < 4:
                 continue
@@ -162,7 +126,7 @@ def main() -> None:
                     energy_features(embeddings, split_candidate, split_base), session_id
                 ))
                 targets.append(0)
-                weights.append(domain_weights.get(session_id, 1.0))
+                weights.append(1.0)
                 synthetic_count += 1
 
     # The original two-fold experiments used the other completed OOF fold.
@@ -251,7 +215,6 @@ def main() -> None:
                 targets.append(int(candidate_identity not in base_identities))
                 weights.append(
                     float(training["real_oof_episode_weight"])
-                    * domain_weights.get(session_id, 1.0)
                 )
                 real_sessions.append(session_id)
                 real_count += 1
@@ -299,13 +262,6 @@ def main() -> None:
         "training_accuracy": accuracy,
         "uses_validation_labels": False,
         "uses_test_data": False,
-        "uses_target_distribution_aggregate": bool(domain_config),
-        "target_domain_uses_labels": False,
-        "domain_names": domain_feature_names() if domain_config else [],
-        "domain_mean": domain_mean.tolist() if domain_mean is not None else None,
-        "domain_scale": domain_scale.tolist() if domain_scale is not None else None,
-        "target_domain": target_domain.tolist() if target_domain is not None else None,
-        "domain_session_weights": domain_weights,
         "training_config": training,
         "feature_metadata_sha256": sha256_file(feature_root / "metadata.json"),
         "config_sha256": sha256_file(config_path),

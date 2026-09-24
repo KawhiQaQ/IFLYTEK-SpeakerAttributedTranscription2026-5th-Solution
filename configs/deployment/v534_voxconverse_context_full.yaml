@@ -1,11 +1,11 @@
 name: v534_voxconverse_context_full
-description: V534 contextual checkpoint initialized from matched VoxConverse plus official fold-train, then refitted on all 106 official development sessions.
+description: Full-development contextual speaker model with fixed public VoxConverse initialization.
 feature_fold: 0
 seed: 20260901
 primary_feature_experiment: v134_eres2netv2_multiscale_metric_features
 secondary_feature_experiment: v25_multiscale_speaker_graph
-initial_checkpoint_path: models/data_experts/v534_voxconverse_structure_matched_v174_heads/fold_0/contextual_metric.pt
-checkpoint_path: models/data_experts/v534_voxconverse_structure_matched_v174_heads/full/contextual_metric.pt
+initial_checkpoint_path: models/data_experts/contextual_speaker_transformer/fold_0/contextual_metric.pt
+checkpoint_path: models/data_experts/contextual_speaker_transformer/full/contextual_metric.pt
 model:
   input_dimension: 576
   projection_dimension: 128

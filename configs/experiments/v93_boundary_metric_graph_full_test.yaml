@@ -1,5 +1,5 @@
 name: v93_boundary_metric_graph_full_test
-description: Full-development V92 metric graph inference on label-free final-test features.
+description: Full-development boundary metric graph inference for evaluation audio.
 feature_experiment: v25_multiscale_speaker_graph
 metric_checkpoint: models/speaker_metric/v92_boundary_metric_full/metric_adapter.pt
 asr_source_dir: outputs/test_fireredasr2_aed/sessions

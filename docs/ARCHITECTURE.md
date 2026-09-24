@@ -150,12 +150,6 @@ $$
 +\lambda_{\mathrm{chg}}\mathrm{BCE}(u_t,y_t^{\mathrm{chg}}).
 $$
 
-The contextual model is first trained for four epochs on 48 public
-VoxConverse windows selected to match aggregate conversation structure, then
-adapted for 14 epochs on fold-pure official development data. The deployment
-model is refit on all 106 development conversations with the architecture and
-epoch budget frozen beforehand.
-
 ## 6. Novel-speaker verification
 
 A complementary partition can propose a role that is absent from the current
@@ -214,6 +208,4 @@ speaker-purity classifier uses class-weighted cross entropy; the contextual
 metric uses balanced positive and negative frame pairs.
 
 At deployment time, neural architectures, epoch budgets, probability
-boundaries, and overlap thresholds are frozen before test inference. The test
-set is not used for gradient updates, pseudo-label training, or per-session
-parameter selection.
+boundaries, and overlap thresholds are fixed by the released configuration.

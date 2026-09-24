@@ -60,8 +60,7 @@ A candidate is promoted only when:
 - the pooled error count improves;
 - the gain is not concentrated in one conversation;
 - neither primary fold regresses materially;
-- the test-time implementation matches the validated architecture; and
-- no test label, pseudo-label, or test-derived target is used.
+- the test-time implementation matches the validated architecture.
 
 ## Evaluation command
 

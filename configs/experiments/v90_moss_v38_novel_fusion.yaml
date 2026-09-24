@@ -1,0 +1,10 @@
+name: v90_moss_v38_novel_fusion
+description: Preserve MOSS substitution-consensus segments and inject only unmatched speakers found by the independent V38 acoustic graph hybrid.
+cv_version: v1
+fold: 0
+base_experiment: v82_moss_native_substitution_consensus
+complementary_experiment: v38_novel_speaker_hybrid
+audit:
+  fold_pure: true
+  uses_validation_labels: false
+  uses_test_data: false

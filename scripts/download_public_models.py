@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import shutil
 import subprocess
@@ -35,6 +36,31 @@ MS_MODELS = [
         "models/modelscope/3dspeaker/models/iic--speech_fsmn_vad_zh-cn-16k-common-pytorch/snapshots/v2.0.4",
     ),
 ]
+
+
+def install_moss_remote_code(root: Path) -> None:
+    source = root / "third_party/MOSS-Transcribe-Diarize/moss_transcribe_diarize"
+    destination = root / "models/huggingface/OpenMOSS-Team/MOSS-Transcribe-Diarize"
+    if not destination.is_dir():
+        return
+    for filename in (
+        "configuration_moss_transcribe_diarize.py",
+        "modeling_moss_transcribe_diarize.py",
+        "processing_moss_transcribe_diarize.py",
+    ):
+        shutil.copy2(source / filename, destination / filename)
+    tokenizer_config = destination / "tokenizer_config.json"
+    payload = json.loads(tokenizer_config.read_text(encoding="utf-8"))
+    if isinstance(payload.get("extra_special_tokens"), list):
+        # The released runtimes expect this field to be a name->token map.
+        # The three audio tokens already exist in added_tokens.json; removing
+        # the legacy list lets the processor use its explicit token fallbacks.
+        payload.pop("extra_special_tokens")
+        tokenizer_config.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    print(f"installed compatible MOSS remote code in {destination}")
 
 
 def command_exists(name: str) -> bool:
@@ -91,6 +117,7 @@ def main() -> None:
                 print(f"skip existing {destination}")
                 continue
             download_hf(repo, destination, root)
+        install_moss_remote_code(root)
     if args.only in ("all", "modelscope"):
         for repo, relative in MS_MODELS:
             destination = root / relative

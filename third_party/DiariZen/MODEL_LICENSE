@@ -1,0 +1,44 @@
+MODEL LICENSE
+=============
+
+The pre-trained model weights released in this repository ("the Models") 
+are licensed under the Creative Commons Attribution-NonCommercial 4.0 
+International License (CC BY-NC 4.0).
+
+Full legal text of the license is available at:
+https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Summary of terms:
+- Attribution (BY): You must give appropriate credit, provide a link to the license,
+  and indicate if changes were made.
+- NonCommercial (NC): You may not use the Models for commercial purposes.
+
+You are free to:
+- Use the Models for academic research and other non-commercial purposes.
+- Share and redistribute the Models, provided that you include proper attribution
+  to the authors and retain this license notice.
+- Modify or adapt the Models for non-commercial use.
+
+You must not:
+- Use the Models or any derivatives thereof for commercial purposes, 
+  including but not limited to products, services, or paid offerings.
+- Remove or alter this license notice in any copies of the Models.
+
+Reason for this restriction:
+The Models are trained on a mixture of datasets, including those licensed under 
+terms that strictly prohibit commercial usage (e.g., RAMC, MSDWild, and DIHARD-3). 
+To respect the restrictive terms of all data providers and ensure legal 
+compliance, the Models are released for research purposes only.
+
+Note on License Compatibility:
+We acknowledge that certain training datasets (e.g., AISHELL-4, AliMeeting) 
+carry a CC BY-SA 4.0 license. However, due to the concurrent use of 
+Non-Commercial (NC) datasets, providing a commercial-friendly SA license is 
+logically incompatible for this specific release. As this project is part of 
+an ongoing PhD research, we prioritize maximum compliance with the most 
+restrictive source terms.
+
+Note:
+The source code in this repository is licensed separately under the MIT License 
+(see LICENSE file). This MODEL_LICENSE applies only to the released pre-trained 
+model weights.

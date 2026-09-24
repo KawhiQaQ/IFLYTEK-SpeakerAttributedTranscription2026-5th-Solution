@@ -1,0 +1,19 @@
+name: v4_qwen3_3dspeaker_count_rf
+description: Qwen3-ASR plus the frozen V3 3D-Speaker and fold-pure speaker-count pipeline; no ensemble.
+cv_version: v1
+fold: 0
+asr_source_experiment: v4_qwen3_asr_1.7b
+speaker_count_model: models/speaker_count/rf_v1_fold_{fold}.joblib
+speaker_count_features: reports/speaker_count_features_v1.json
+diarization:
+  toolkit: modelscope/3D-Speaker
+  pipeline: speakerlab.bin.infer_diarization.Diarization3Dspeaker
+  embedding_model: iic/speech_campplus_sv_zh_en_16k-common_advanced
+  embedding_revision: v1.0.0
+  vad_model: iic/speech_fsmn_vad_zh-cn-16k-common-pytorch
+  vad_revision: v2.0.4
+  include_overlap: false
+  device: cuda:0
+assignment:
+  max_gap_seconds: 0.8
+  token_timestamp_source: Qwen3-ForcedAligner-0.6B

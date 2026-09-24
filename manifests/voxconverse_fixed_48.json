@@ -1,0 +1,3077 @@
+{
+  "schema_version": 1,
+  "dataset": "VoxConverse",
+  "version": "0.3",
+  "official_project": "https://www.robots.ox.ac.uk/~vgg/data/voxconverse/",
+  "mirror_repository": "ggfox00000/dia-voxconverse-test",
+  "license": "CC BY 4.0; original video copyright remains with owners",
+  "subset_id": "voxconverse_fixed_48",
+  "description": "Fixed 48-window public training subset used by the released model.",
+  "sessions": [
+    {
+      "session_id": "aepyx",
+      "source_path": "audio/test/aepyx.wav",
+      "source_file_bytes": 5412942,
+      "source_byte_range": [
+        78,
+        1339693
+      ],
+      "window_start": 0.0,
+      "window_end": 41.863,
+      "wav_sha256": "40002cb8bfaa4c7554cc75a2e33f4b7e56e41e7f8af586ca2aee23c43e1ef0a2",
+      "rttm_sha256": "8d9c31d2e364740ab3248846450126a4cecaf2477fecc33ae21ee9a953e87d27",
+      "segments": [
+        {
+          "start": 2.5,
+          "end": 6.16,
+          "speaker": "spk00"
+        },
+        {
+          "start": 6.2,
+          "end": 11.54,
+          "speaker": "spk01"
+        },
+        {
+          "start": 11.68,
+          "end": 14.62,
+          "speaker": "spk00"
+        },
+        {
+          "start": 14.96,
+          "end": 18.4,
+          "speaker": "spk01"
+        },
+        {
+          "start": 19.09,
+          "end": 25.44,
+          "speaker": "spk01"
+        },
+        {
+          "start": 26.13,
+          "end": 27.19,
+          "speaker": "spk01"
+        },
+        {
+          "start": 28.32,
+          "end": 32.56,
+          "speaker": "spk00"
+        },
+        {
+          "start": 32.5,
+          "end": 33.48,
+          "speaker": "spk02"
+        },
+        {
+          "start": 34.4,
+          "end": 41.8633,
+          "speaker": "spk02"
+        }
+      ]
+    },
+    {
+      "session_id": "aiqwk",
+      "source_path": "audio/test/aiqwk.wav",
+      "source_file_bytes": 6363214,
+      "source_byte_range": [
+        1440078,
+        2779693
+      ],
+      "window_start": 45.0,
+      "window_end": 86.863,
+      "wav_sha256": "e3cf033112d693dfae47c1ab2d14c77b66a3056ee24fac7b76759125422880fb",
+      "rttm_sha256": "a33f4b8683cdd421509d8680d32d461a0c961393b54f1ef11d2cc3349409d796",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.13,
+          "speaker": "spk02"
+        },
+        {
+          "start": 5.98,
+          "end": 10.5,
+          "speaker": "spk02"
+        },
+        {
+          "start": 11.0,
+          "end": 16.36,
+          "speaker": "spk02"
+        },
+        {
+          "start": 16.77,
+          "end": 20.16,
+          "speaker": "spk02"
+        },
+        {
+          "start": 20.86,
+          "end": 26.9,
+          "speaker": "spk02"
+        },
+        {
+          "start": 27.35,
+          "end": 28.88,
+          "speaker": "spk03"
+        },
+        {
+          "start": 29.52,
+          "end": 34.32,
+          "speaker": "spk02"
+        },
+        {
+          "start": 34.59,
+          "end": 38.0,
+          "speaker": "spk04"
+        },
+        {
+          "start": 35.73,
+          "end": 36.43,
+          "speaker": "spk05"
+        },
+        {
+          "start": 38.88,
+          "end": 41.8633,
+          "speaker": "spk05"
+        },
+        {
+          "start": 41.58,
+          "end": 41.8633,
+          "speaker": "spk04"
+        }
+      ]
+    },
+    {
+      "session_id": "bmsyn",
+      "source_path": "audio/test/bmsyn.wav",
+      "source_file_bytes": 22749262,
+      "source_byte_range": [
+        2247886,
+        3587533
+      ],
+      "window_start": 70.244,
+      "window_end": 112.108,
+      "wav_sha256": "6c80e840633cb0f309a9c63431c1a061018b3b31d63371bb8af0da3a04f22e99",
+      "rttm_sha256": "76127b8f042d2bf123285f0398c2a271a2aadcab8cd1a5b09908cf1e6036e446",
+      "segments": [
+        {
+          "start": 0.1857,
+          "end": 4.9557,
+          "speaker": "spk00"
+        },
+        {
+          "start": 5.7757,
+          "end": 7.9257,
+          "speaker": "spk00"
+        },
+        {
+          "start": 9.6857,
+          "end": 11.2857,
+          "speaker": "spk03"
+        },
+        {
+          "start": 12.3157,
+          "end": 18.8257,
+          "speaker": "spk03"
+        },
+        {
+          "start": 14.6057,
+          "end": 15.2857,
+          "speaker": "spk00"
+        },
+        {
+          "start": 19.3557,
+          "end": 30.7157,
+          "speaker": "spk03"
+        },
+        {
+          "start": 31.2957,
+          "end": 36.6757,
+          "speaker": "spk00"
+        },
+        {
+          "start": 37.2557,
+          "end": 40.3857,
+          "speaker": "spk02"
+        },
+        {
+          "start": 41.1357,
+          "end": 41.8633,
+          "speaker": "spk02"
+        }
+      ]
+    },
+    {
+      "session_id": "bpzsc",
+      "source_path": "audio/test/bpzsc.wav",
+      "source_file_bytes": 33695822,
+      "source_byte_range": [
+        27501742,
+        28841357
+      ],
+      "window_start": 859.427,
+      "window_end": 901.29,
+      "wav_sha256": "1b4de9da19f82f0f121da134cb0597263bd249a12a9df4bbd3f0205dd2617801",
+      "rttm_sha256": "693235ac93d29b38dc84068f7b83dfc009b99ca9a83f2d01343cc96af650699a",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 12.853,
+          "speaker": "spk01"
+        },
+        {
+          "start": 12.793,
+          "end": 14.733,
+          "speaker": "spk00"
+        },
+        {
+          "start": 14.213,
+          "end": 16.413,
+          "speaker": "spk01"
+        },
+        {
+          "start": 20.233,
+          "end": 21.723,
+          "speaker": "spk01"
+        },
+        {
+          "start": 22.223,
+          "end": 23.153,
+          "speaker": "spk00"
+        },
+        {
+          "start": 23.513,
+          "end": 28.633,
+          "speaker": "spk01"
+        },
+        {
+          "start": 27.433,
+          "end": 27.683,
+          "speaker": "spk00"
+        },
+        {
+          "start": 28.473,
+          "end": 33.993,
+          "speaker": "spk00"
+        },
+        {
+          "start": 34.533,
+          "end": 34.973,
+          "speaker": "spk01"
+        },
+        {
+          "start": 35.573,
+          "end": 41.8633,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "byapz",
+      "source_path": "audio/test/byapz.wav",
+      "source_file_bytes": 15040590,
+      "source_byte_range": [
+        5204622,
+        6544237
+      ],
+      "window_start": 162.642,
+      "window_end": 204.505,
+      "wav_sha256": "387ea32fe2c9514bd7952b1cc7e8b9fb3cb82608cb8f4a47953282b32111b6a4",
+      "rttm_sha256": "1e2af550ccfee94da38f1250ea2e5c9b82fe0fa5c60dc7f0b561227372c95431",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.7579,
+          "speaker": "spk08"
+        },
+        {
+          "start": 1.8179,
+          "end": 2.3379,
+          "speaker": "spk10"
+        },
+        {
+          "start": 3.2579,
+          "end": 4.1979,
+          "speaker": "spk08"
+        },
+        {
+          "start": 4.3179,
+          "end": 6.6779,
+          "speaker": "spk10"
+        },
+        {
+          "start": 7.2779,
+          "end": 10.7779,
+          "speaker": "spk10"
+        },
+        {
+          "start": 11.2379,
+          "end": 15.9179,
+          "speaker": "spk00"
+        },
+        {
+          "start": 15.9879,
+          "end": 18.1579,
+          "speaker": "spk11"
+        },
+        {
+          "start": 18.1579,
+          "end": 20.2579,
+          "speaker": "spk00"
+        },
+        {
+          "start": 21.3979,
+          "end": 23.4179,
+          "speaker": "spk00"
+        },
+        {
+          "start": 23.5379,
+          "end": 25.0379,
+          "speaker": "spk10"
+        },
+        {
+          "start": 25.6779,
+          "end": 29.1379,
+          "speaker": "spk10"
+        },
+        {
+          "start": 30.7779,
+          "end": 41.8634,
+          "speaker": "spk00"
+        }
+      ]
+    },
+    {
+      "session_id": "clfcg",
+      "source_path": "audio/test/clfcg.wav",
+      "source_file_bytes": 10199118,
+      "source_byte_range": [
+        2820718,
+        4160333
+      ],
+      "window_start": 88.145,
+      "window_end": 130.008,
+      "wav_sha256": "6d665d05ad8f79c27f64b18b390a25beb1dae99f79ddb08e5159a5f011951b76",
+      "rttm_sha256": "1d2b34039f83eb0264279ce447f36b67ca3ec650775a1231f91ea551e43c08c5",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.1253,
+          "speaker": "spk05"
+        },
+        {
+          "start": 1.0953,
+          "end": 2.1253,
+          "speaker": "spk05"
+        },
+        {
+          "start": 2.6153,
+          "end": 4.6953,
+          "speaker": "spk00"
+        },
+        {
+          "start": 5.0553,
+          "end": 6.5853,
+          "speaker": "spk00"
+        },
+        {
+          "start": 7.4753,
+          "end": 8.4753,
+          "speaker": "spk06"
+        },
+        {
+          "start": 8.6053,
+          "end": 9.6553,
+          "speaker": "spk00"
+        },
+        {
+          "start": 9.6553,
+          "end": 13.4953,
+          "speaker": "spk06"
+        },
+        {
+          "start": 13.9753,
+          "end": 22.2953,
+          "speaker": "spk06"
+        },
+        {
+          "start": 22.7353,
+          "end": 26.0553,
+          "speaker": "spk06"
+        },
+        {
+          "start": 26.1953,
+          "end": 31.3753,
+          "speaker": "spk00"
+        },
+        {
+          "start": 32.4953,
+          "end": 41.8633,
+          "speaker": "spk03"
+        }
+      ]
+    },
+    {
+      "session_id": "cqfmj",
+      "source_path": "audio/test/cqfmj.wav",
+      "source_file_bytes": 3678286,
+      "source_byte_range": [
+        1280078,
+        2619693
+      ],
+      "window_start": 40.0,
+      "window_end": 81.863,
+      "wav_sha256": "12a167bb1f8b15c330aeb2d64029fcd6db4947ea2be3fb15249edeb940e44cb6",
+      "rttm_sha256": "da8160094411f4519ac18711c0de497217c07613945400f747372a7b98a3bde2",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.36,
+          "speaker": "spk01"
+        },
+        {
+          "start": 4.32,
+          "end": 12.8,
+          "speaker": "spk01"
+        },
+        {
+          "start": 13.68,
+          "end": 18.84,
+          "speaker": "spk01"
+        },
+        {
+          "start": 19.8,
+          "end": 24.73,
+          "speaker": "spk01"
+        },
+        {
+          "start": 24.88,
+          "end": 25.53,
+          "speaker": "spk02"
+        },
+        {
+          "start": 25.6,
+          "end": 32.77,
+          "speaker": "spk01"
+        },
+        {
+          "start": 32.91,
+          "end": 33.65,
+          "speaker": "spk03"
+        },
+        {
+          "start": 33.72,
+          "end": 38.48,
+          "speaker": "spk01"
+        },
+        {
+          "start": 38.37,
+          "end": 39.97,
+          "speaker": "spk03"
+        },
+        {
+          "start": 39.38,
+          "end": 41.8633,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "crylr",
+      "source_path": "audio/test/crylr.wav",
+      "source_file_bytes": 6013006,
+      "source_byte_range": [
+        3040078,
+        4379693
+      ],
+      "window_start": 95.0,
+      "window_end": 136.863,
+      "wav_sha256": "a8e7a10879449653c8189397ac4767bf78e6e9a945dc69b99949ad456eb1f036",
+      "rttm_sha256": "9e02b0e09c5e47a2a670e5e1c5bac817ba3ce97be62d5604a48facf8f273332d",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.22,
+          "speaker": "spk00"
+        },
+        {
+          "start": 2.84,
+          "end": 17.44,
+          "speaker": "spk00"
+        },
+        {
+          "start": 18.08,
+          "end": 24.78,
+          "speaker": "spk03"
+        },
+        {
+          "start": 25.24,
+          "end": 25.88,
+          "speaker": "spk01"
+        },
+        {
+          "start": 25.96,
+          "end": 27.16,
+          "speaker": "spk03"
+        },
+        {
+          "start": 29.74,
+          "end": 32.82,
+          "speaker": "spk03"
+        },
+        {
+          "start": 33.9,
+          "end": 34.49,
+          "speaker": "spk03"
+        },
+        {
+          "start": 35.07,
+          "end": 38.11,
+          "speaker": "spk03"
+        },
+        {
+          "start": 35.48,
+          "end": 36.4,
+          "speaker": "spk01"
+        },
+        {
+          "start": 37.88,
+          "end": 39.6,
+          "speaker": "spk01"
+        },
+        {
+          "start": 40.42,
+          "end": 41.8633,
+          "speaker": "spk03"
+        }
+      ]
+    },
+    {
+      "session_id": "diysk",
+      "source_path": "audio/test/diysk.wav",
+      "source_file_bytes": 37724238,
+      "source_byte_range": [
+        23970094,
+        25309741
+      ],
+      "window_start": 749.063,
+      "window_end": 790.927,
+      "wav_sha256": "468a629737de609ccefa67d28a831b2312132a92d0f29ff4a1b0069ffb1184a2",
+      "rttm_sha256": "8a16f330981074a3361e1ac26ff0d9e30cc7dd9e5a5a863b8b0e43e2d07c7d42",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.5367,
+          "speaker": "spk02"
+        },
+        {
+          "start": 3.8567,
+          "end": 5.3067,
+          "speaker": "spk02"
+        },
+        {
+          "start": 5.9067,
+          "end": 6.4067,
+          "speaker": "spk02"
+        },
+        {
+          "start": 6.4067,
+          "end": 6.9267,
+          "speaker": "spk00"
+        },
+        {
+          "start": 7.2567,
+          "end": 7.7567,
+          "speaker": "spk02"
+        },
+        {
+          "start": 8.9567,
+          "end": 10.0867,
+          "speaker": "spk02"
+        },
+        {
+          "start": 10.5267,
+          "end": 17.8567,
+          "speaker": "spk02"
+        },
+        {
+          "start": 18.5267,
+          "end": 19.6967,
+          "speaker": "spk02"
+        },
+        {
+          "start": 21.0367,
+          "end": 21.9367,
+          "speaker": "spk00"
+        },
+        {
+          "start": 22.5367,
+          "end": 25.1367,
+          "speaker": "spk02"
+        },
+        {
+          "start": 25.9067,
+          "end": 29.0867,
+          "speaker": "spk02"
+        },
+        {
+          "start": 28.2367,
+          "end": 34.9067,
+          "speaker": "spk00"
+        },
+        {
+          "start": 35.6367,
+          "end": 39.2167,
+          "speaker": "spk00"
+        },
+        {
+          "start": 39.4567,
+          "end": 41.6567,
+          "speaker": "spk11"
+        },
+        {
+          "start": 41.8067,
+          "end": 41.8634,
+          "speaker": "spk02"
+        }
+      ]
+    },
+    {
+      "session_id": "duvox",
+      "source_path": "audio/test/duvox.wav",
+      "source_file_bytes": 31686734,
+      "source_byte_range": [
+        27728718,
+        29068333
+      ],
+      "window_start": 866.52,
+      "window_end": 908.383,
+      "wav_sha256": "3bef2c6aa9aa17329f25705550087825fc405e5882df007aff2204fe8297dba4",
+      "rttm_sha256": "a581847148e0d541fc638410564724f07436198fe0fee628fa16f0083b7a7092",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.6898,
+          "speaker": "spk03"
+        },
+        {
+          "start": 3.8598,
+          "end": 7.2398,
+          "speaker": "spk03"
+        },
+        {
+          "start": 7.7298,
+          "end": 11.2098,
+          "speaker": "spk03"
+        },
+        {
+          "start": 11.6298,
+          "end": 12.0198,
+          "speaker": "spk00"
+        },
+        {
+          "start": 13.4598,
+          "end": 26.4398,
+          "speaker": "spk00"
+        },
+        {
+          "start": 27.0698,
+          "end": 34.8398,
+          "speaker": "spk00"
+        },
+        {
+          "start": 35.5998,
+          "end": 36.8198,
+          "speaker": "spk01"
+        },
+        {
+          "start": 36.5598,
+          "end": 40.4598,
+          "speaker": "spk00"
+        },
+        {
+          "start": 40.9998,
+          "end": 41.8633,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "dzxut",
+      "source_path": "audio/test/dzxut.wav",
+      "source_file_bytes": 5879886,
+      "source_byte_range": [
+        3520078,
+        4859693
+      ],
+      "window_start": 110.0,
+      "window_end": 151.863,
+      "wav_sha256": "871bc91ff457bb156bae60da181c38e9702989ff5f50292be1069e3658d9aae1",
+      "rttm_sha256": "422b9af357eebea0cfd3648ae89a421e210a47c0a343cf77407f904ed82f5b7d",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.96,
+          "speaker": "spk03"
+        },
+        {
+          "start": 4.65,
+          "end": 6.59,
+          "speaker": "spk00"
+        },
+        {
+          "start": 6.21,
+          "end": 16.05,
+          "speaker": "spk06"
+        },
+        {
+          "start": 9.57,
+          "end": 9.84,
+          "speaker": "spk03"
+        },
+        {
+          "start": 16.59,
+          "end": 24.94,
+          "speaker": "spk03"
+        },
+        {
+          "start": 25.57,
+          "end": 28.13,
+          "speaker": "spk03"
+        },
+        {
+          "start": 29.68,
+          "end": 31.6,
+          "speaker": "spk03"
+        },
+        {
+          "start": 32.53,
+          "end": 36.09,
+          "speaker": "spk03"
+        },
+        {
+          "start": 36.76,
+          "end": 40.03,
+          "speaker": "spk03"
+        },
+        {
+          "start": 41.23,
+          "end": 41.8633,
+          "speaker": "spk03"
+        }
+      ]
+    },
+    {
+      "session_id": "fijfi",
+      "source_path": "audio/test/fijfi.wav",
+      "source_file_bytes": 29501518,
+      "source_byte_range": [
+        18549134,
+        19888781
+      ],
+      "window_start": 579.658,
+      "window_end": 621.522,
+      "wav_sha256": "75a31fa085eb82aa4a8600dd8471c766cf06ace87e2cfcc590d8007d66c6beb6",
+      "rttm_sha256": "c828f07d28752a04926e6bb189b90cc2005943c53d4475fc8f39c569099043df",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.0318,
+          "speaker": "spk04"
+        },
+        {
+          "start": 0.1618,
+          "end": 0.5318,
+          "speaker": "spk00"
+        },
+        {
+          "start": 1.5918,
+          "end": 4.0318,
+          "speaker": "spk04"
+        },
+        {
+          "start": 4.2218,
+          "end": 7.5518,
+          "speaker": "spk00"
+        },
+        {
+          "start": 8.0318,
+          "end": 9.5518,
+          "speaker": "spk00"
+        },
+        {
+          "start": 10.1318,
+          "end": 14.3818,
+          "speaker": "spk00"
+        },
+        {
+          "start": 14.8218,
+          "end": 15.2818,
+          "speaker": "spk01"
+        },
+        {
+          "start": 16.1618,
+          "end": 22.8618,
+          "speaker": "spk01"
+        },
+        {
+          "start": 23.3418,
+          "end": 41.8634,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "hqhrb",
+      "source_path": "audio/test/hqhrb.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        30741678,
+        32081293
+      ],
+      "window_start": 960.675,
+      "window_end": 1002.538,
+      "wav_sha256": "0ad771211d3be2c62a53b95665aa117da32bfd573622b2e54e303863669f9821",
+      "rttm_sha256": "17ef1c4f5681e8d1a6d891c7b1cbb60e35d69a52a96e31ae5e1977ddd3b1022f",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.3149,
+          "speaker": "spk04"
+        },
+        {
+          "start": 3.3949,
+          "end": 16.6449,
+          "speaker": "spk00"
+        },
+        {
+          "start": 16.6449,
+          "end": 17.2849,
+          "speaker": "spk05"
+        },
+        {
+          "start": 17.2849,
+          "end": 19.6649,
+          "speaker": "spk00"
+        },
+        {
+          "start": 19.6449,
+          "end": 22.3049,
+          "speaker": "spk05"
+        },
+        {
+          "start": 21.3249,
+          "end": 22.3949,
+          "speaker": "spk00"
+        },
+        {
+          "start": 24.5049,
+          "end": 27.0649,
+          "speaker": "spk00"
+        },
+        {
+          "start": 27.6549,
+          "end": 36.7849,
+          "speaker": "spk00"
+        },
+        {
+          "start": 38.8549,
+          "end": 40.1849,
+          "speaker": "spk05"
+        },
+        {
+          "start": 41.0849,
+          "end": 41.8633,
+          "speaker": "spk05"
+        }
+      ]
+    },
+    {
+      "session_id": "ibrnm",
+      "source_path": "audio/test/ibrnm.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        78,
+        1339693
+      ],
+      "window_start": 0.0,
+      "window_end": 41.863,
+      "wav_sha256": "e39b2d0c644aee29325a95d81332352126d3ba3612d4bf6df86d6e8f79545e60",
+      "rttm_sha256": "557cb00ffa8ce2902fb6fdf7e53cf31fca7c39dd569d27877894d8b0f37fc840",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.54,
+          "speaker": "spk00"
+        },
+        {
+          "start": 5.38,
+          "end": 7.23,
+          "speaker": "spk01"
+        },
+        {
+          "start": 8.15,
+          "end": 8.84,
+          "speaker": "spk00"
+        },
+        {
+          "start": 9.9,
+          "end": 20.19,
+          "speaker": "spk02"
+        },
+        {
+          "start": 20.96,
+          "end": 21.71,
+          "speaker": "spk00"
+        },
+        {
+          "start": 22.27,
+          "end": 30.02,
+          "speaker": "spk01"
+        },
+        {
+          "start": 30.59,
+          "end": 39.59,
+          "speaker": "spk01"
+        },
+        {
+          "start": 40.71,
+          "end": 41.8633,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "iiprr",
+      "source_path": "audio/test/iiprr.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        35485870,
+        36825485
+      ],
+      "window_start": 1108.931,
+      "window_end": 1150.794,
+      "wav_sha256": "a8fc579b2c967b52b1c6e6890f551098e4447d0809b868a064c99118cd9c1ef9",
+      "rttm_sha256": "a598b171683d304ca3d3424143b5e561342877964a24ea6859e3afd4f311e689",
+      "segments": [
+        {
+          "start": 0.2991,
+          "end": 1.9391,
+          "speaker": "spk06"
+        },
+        {
+          "start": 2.6491,
+          "end": 3.9091,
+          "speaker": "spk06"
+        },
+        {
+          "start": 4.9391,
+          "end": 5.8391,
+          "speaker": "spk06"
+        },
+        {
+          "start": 6.9991,
+          "end": 11.9091,
+          "speaker": "spk06"
+        },
+        {
+          "start": 12.6591,
+          "end": 14.1991,
+          "speaker": "spk06"
+        },
+        {
+          "start": 15.6491,
+          "end": 17.0991,
+          "speaker": "spk00"
+        },
+        {
+          "start": 16.5991,
+          "end": 38.6991,
+          "speaker": "spk02"
+        },
+        {
+          "start": 39.5491,
+          "end": 40.6891,
+          "speaker": "spk00"
+        },
+        {
+          "start": 40.8391,
+          "end": 41.8633,
+          "speaker": "spk06"
+        }
+      ]
+    },
+    {
+      "session_id": "iowob",
+      "source_path": "audio/test/iowob.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        78,
+        1339693
+      ],
+      "window_start": 0.0,
+      "window_end": 41.863,
+      "wav_sha256": "a5e5150007364ee7e51962a6da1afe9a7907494edbe4be82fbc6e06cecc3f8be",
+      "rttm_sha256": "d180f71f922cb48acc731ff0f108e342e51d6893a2414004d83c6c172ff61632",
+      "segments": [
+        {
+          "start": 0.71,
+          "end": 4.48,
+          "speaker": "spk00"
+        },
+        {
+          "start": 5.03,
+          "end": 6.6,
+          "speaker": "spk01"
+        },
+        {
+          "start": 7.21,
+          "end": 8.45,
+          "speaker": "spk00"
+        },
+        {
+          "start": 8.92,
+          "end": 17.4,
+          "speaker": "spk02"
+        },
+        {
+          "start": 18.45,
+          "end": 19.02,
+          "speaker": "spk02"
+        },
+        {
+          "start": 20.28,
+          "end": 25.46,
+          "speaker": "spk02"
+        },
+        {
+          "start": 26.86,
+          "end": 31.12,
+          "speaker": "spk02"
+        },
+        {
+          "start": 32.92,
+          "end": 41.8633,
+          "speaker": "spk02"
+        }
+      ]
+    },
+    {
+      "session_id": "isxwc",
+      "source_path": "audio/test/isxwc.wav",
+      "source_file_bytes": 5056590,
+      "source_byte_range": [
+        2400078,
+        3739693
+      ],
+      "window_start": 75.0,
+      "window_end": 116.863,
+      "wav_sha256": "f9666ec6ca4582cd3aa05ee1b8a006d74383d5338d282e9a9caf614daa9ca969",
+      "rttm_sha256": "4654b7bdaedf24893ff35998485e31722c24785123a088c3406dcb181c282070",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "speaker": "spk01"
+        },
+        {
+          "start": 0.25,
+          "end": 5.06,
+          "speaker": "spk01"
+        },
+        {
+          "start": 5.46,
+          "end": 10.02,
+          "speaker": "spk01"
+        },
+        {
+          "start": 11.73,
+          "end": 20.54,
+          "speaker": "spk00"
+        },
+        {
+          "start": 20.88,
+          "end": 25.11,
+          "speaker": "spk02"
+        },
+        {
+          "start": 25.44,
+          "end": 28.36,
+          "speaker": "spk00"
+        },
+        {
+          "start": 28.86,
+          "end": 33.21,
+          "speaker": "spk00"
+        },
+        {
+          "start": 33.44,
+          "end": 39.36,
+          "speaker": "spk03"
+        },
+        {
+          "start": 40.48,
+          "end": 41.8633,
+          "speaker": "spk00"
+        }
+      ]
+    },
+    {
+      "session_id": "jgiyq",
+      "source_path": "audio/test/jgiyq.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        18127854,
+        19467501
+      ],
+      "window_start": 566.493,
+      "window_end": 608.357,
+      "wav_sha256": "db3410c8712367f4518ba59b382015bc2dedb4667e9602cbcfa216df4890013a",
+      "rttm_sha256": "c1747d8dc31847f94051fad09eb2d9a9d3bf7a262130f33782bebca48bba97f7",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.4267,
+          "speaker": "spk00"
+        },
+        {
+          "start": 1.8467,
+          "end": 9.0767,
+          "speaker": "spk00"
+        },
+        {
+          "start": 9.4267,
+          "end": 10.1067,
+          "speaker": "spk04"
+        },
+        {
+          "start": 11.5967,
+          "end": 16.4667,
+          "speaker": "spk05"
+        },
+        {
+          "start": 16.9467,
+          "end": 17.9467,
+          "speaker": "spk04"
+        },
+        {
+          "start": 17.8367,
+          "end": 19.5267,
+          "speaker": "spk05"
+        },
+        {
+          "start": 20.4867,
+          "end": 20.9667,
+          "speaker": "spk05"
+        },
+        {
+          "start": 21.4067,
+          "end": 29.1367,
+          "speaker": "spk01"
+        },
+        {
+          "start": 29.7967,
+          "end": 41.6467,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "jsymf",
+      "source_path": "audio/test/jsymf.wav",
+      "source_file_bytes": 33452110,
+      "source_byte_range": [
+        18422158,
+        19761773
+      ],
+      "window_start": 575.69,
+      "window_end": 617.553,
+      "wav_sha256": "0b3681b282656adba50e9f4481bb406ec8e6e2c0292567fe4f01667320201db7",
+      "rttm_sha256": "b3fa591faa606c34877180943ee45568f24777357485b35a7be8f9e7dd84ac59",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 6.4302,
+          "speaker": "spk01"
+        },
+        {
+          "start": 6.6402,
+          "end": 8.6902,
+          "speaker": "spk05"
+        },
+        {
+          "start": 7.5302,
+          "end": 8.2102,
+          "speaker": "spk00"
+        },
+        {
+          "start": 9.0002,
+          "end": 11.4302,
+          "speaker": "spk05"
+        },
+        {
+          "start": 11.9102,
+          "end": 14.5002,
+          "speaker": "spk05"
+        },
+        {
+          "start": 15.0502,
+          "end": 18.1402,
+          "speaker": "spk05"
+        },
+        {
+          "start": 18.9802,
+          "end": 21.1902,
+          "speaker": "spk05"
+        },
+        {
+          "start": 22.2402,
+          "end": 24.1402,
+          "speaker": "spk05"
+        },
+        {
+          "start": 24.8102,
+          "end": 34.1902,
+          "speaker": "spk05"
+        },
+        {
+          "start": 34.6202,
+          "end": 39.1702,
+          "speaker": "spk05"
+        },
+        {
+          "start": 39.6902,
+          "end": 40.7602,
+          "speaker": "spk05"
+        },
+        {
+          "start": 41.5002,
+          "end": 41.8633,
+          "speaker": "spk05"
+        }
+      ]
+    },
+    {
+      "session_id": "jxpom",
+      "source_path": "audio/test/jxpom.wav",
+      "source_file_bytes": 16865358,
+      "source_byte_range": [
+        9241006,
+        10580653
+      ],
+      "window_start": 288.779,
+      "window_end": 330.643,
+      "wav_sha256": "c1b888f2af51689ea884c5f8217e85e2782b89901d891eb7596ebd502da048c7",
+      "rttm_sha256": "7722215d2510346ad9dd98b6355e529f954991b93187a45e95c8bc3673c5b961",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.3407,
+          "speaker": "spk00"
+        },
+        {
+          "start": 2.3307,
+          "end": 3.5607,
+          "speaker": "spk03"
+        },
+        {
+          "start": 2.8707,
+          "end": 3.7807,
+          "speaker": "spk00"
+        },
+        {
+          "start": 5.3307,
+          "end": 7.0107,
+          "speaker": "spk00"
+        },
+        {
+          "start": 7.0107,
+          "end": 7.9307,
+          "speaker": "spk03"
+        },
+        {
+          "start": 9.9907,
+          "end": 13.7407,
+          "speaker": "spk00"
+        },
+        {
+          "start": 14.4907,
+          "end": 15.2207,
+          "speaker": "spk03"
+        },
+        {
+          "start": 16.8507,
+          "end": 17.4707,
+          "speaker": "spk03"
+        },
+        {
+          "start": 17.4307,
+          "end": 20.3407,
+          "speaker": "spk00"
+        },
+        {
+          "start": 20.9007,
+          "end": 26.1007,
+          "speaker": "spk00"
+        },
+        {
+          "start": 26.5207,
+          "end": 27.0807,
+          "speaker": "spk04"
+        },
+        {
+          "start": 27.2307,
+          "end": 27.7307,
+          "speaker": "spk03"
+        },
+        {
+          "start": 27.2807,
+          "end": 36.6007,
+          "speaker": "spk00"
+        },
+        {
+          "start": 37.1607,
+          "end": 40.6007,
+          "speaker": "spk00"
+        },
+        {
+          "start": 40.7207,
+          "end": 41.8633,
+          "speaker": "spk03"
+        }
+      ]
+    },
+    {
+      "session_id": "jzkzt",
+      "source_path": "audio/test/jzkzt.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        23658094,
+        24997709
+      ],
+      "window_start": 739.313,
+      "window_end": 781.176,
+      "wav_sha256": "fb913a5fb0504d537bc3f95ef4356492ad87bd26891dbe849c57a07ada5913cc",
+      "rttm_sha256": "5db965049e2988b313c9b7b05bad08e56a5324f28acb78d9f381cce1a17f1d4b",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.8372,
+          "speaker": "spk02"
+        },
+        {
+          "start": 3.2672,
+          "end": 3.5572,
+          "speaker": "spk01"
+        },
+        {
+          "start": 3.8972,
+          "end": 6.3672,
+          "speaker": "spk00"
+        },
+        {
+          "start": 6.5372,
+          "end": 8.1772,
+          "speaker": "spk02"
+        },
+        {
+          "start": 9.1372,
+          "end": 10.3272,
+          "speaker": "spk02"
+        },
+        {
+          "start": 11.5772,
+          "end": 16.2072,
+          "speaker": "spk02"
+        },
+        {
+          "start": 16.7072,
+          "end": 18.0472,
+          "speaker": "spk02"
+        },
+        {
+          "start": 18.6072,
+          "end": 39.2172,
+          "speaker": "spk02"
+        },
+        {
+          "start": 22.7072,
+          "end": 23.1872,
+          "speaker": "spk00"
+        },
+        {
+          "start": 38.1872,
+          "end": 41.8633,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "kzmyi",
+      "source_path": "audio/test/kzmyi.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        29170222,
+        30509837
+      ],
+      "window_start": 911.567,
+      "window_end": 953.43,
+      "wav_sha256": "4bfe7f2809f0e84ac99b345917fa067516f3f9c5eb828268f2b37f12d37b3955",
+      "rttm_sha256": "5fa3d7ffcbecc4bbe0fd05f2a5b04f3de1b99c5a37085414a8e51f67a2d9c8f7",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 15.5028,
+          "speaker": "spk04"
+        },
+        {
+          "start": 16.1528,
+          "end": 16.8328,
+          "speaker": "spk01"
+        },
+        {
+          "start": 22.2228,
+          "end": 25.3328,
+          "speaker": "spk01"
+        },
+        {
+          "start": 25.2128,
+          "end": 27.9128,
+          "speaker": "spk05"
+        },
+        {
+          "start": 28.2328,
+          "end": 29.9728,
+          "speaker": "spk01"
+        },
+        {
+          "start": 30.7428,
+          "end": 31.9828,
+          "speaker": "spk05"
+        },
+        {
+          "start": 32.5028,
+          "end": 37.5728,
+          "speaker": "spk05"
+        },
+        {
+          "start": 38.3928,
+          "end": 40.1528,
+          "speaker": "spk05"
+        },
+        {
+          "start": 40.5628,
+          "end": 41.3928,
+          "speaker": "spk05"
+        }
+      ]
+    },
+    {
+      "session_id": "lbfnx",
+      "source_path": "audio/test/lbfnx.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        8674766,
+        10014381
+      ],
+      "window_start": 271.084,
+      "window_end": 312.947,
+      "wav_sha256": "ed5f954789f9b0455d1f7e871487381415884dbff980d0d8d85d0bca4c39df3f",
+      "rttm_sha256": "36d00bde5a1ba952365119d11d529971a565f1dbd41bd235562537397ebeea49",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.8963,
+          "speaker": "spk01"
+        },
+        {
+          "start": 0.7963,
+          "end": 1.2263,
+          "speaker": "spk00"
+        },
+        {
+          "start": 1.5963,
+          "end": 8.3063,
+          "speaker": "spk01"
+        },
+        {
+          "start": 5.3763,
+          "end": 5.7563,
+          "speaker": "spk00"
+        },
+        {
+          "start": 8.9763,
+          "end": 14.4563,
+          "speaker": "spk01"
+        },
+        {
+          "start": 15.0263,
+          "end": 20.1063,
+          "speaker": "spk01"
+        },
+        {
+          "start": 21.2563,
+          "end": 26.9763,
+          "speaker": "spk01"
+        },
+        {
+          "start": 28.1563,
+          "end": 31.8363,
+          "speaker": "spk00"
+        },
+        {
+          "start": 33.3163,
+          "end": 34.7463,
+          "speaker": "spk04"
+        },
+        {
+          "start": 35.3563,
+          "end": 41.8633,
+          "speaker": "spk04"
+        }
+      ]
+    },
+    {
+      "session_id": "lilfy",
+      "source_path": "audio/test/lilfy.wav",
+      "source_file_bytes": 6119502,
+      "source_byte_range": [
+        2240078,
+        3579693
+      ],
+      "window_start": 70.0,
+      "window_end": 111.863,
+      "wav_sha256": "8370c62d6e54c59bc291e274fc8cf9150b29e2e7a2a5661ac4934547a6cb63ec",
+      "rttm_sha256": "a0b60ef7ffbb4dc34aa19c9d1313138ef1acfa836968a5a426f181aa0a4830f9",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.06,
+          "speaker": "spk00"
+        },
+        {
+          "start": 7.84,
+          "end": 14.42,
+          "speaker": "spk00"
+        },
+        {
+          "start": 14.96,
+          "end": 19.0,
+          "speaker": "spk02"
+        },
+        {
+          "start": 19.0,
+          "end": 35.34,
+          "speaker": "spk03"
+        },
+        {
+          "start": 35.91,
+          "end": 37.84,
+          "speaker": "spk02"
+        },
+        {
+          "start": 38.18,
+          "end": 40.98,
+          "speaker": "spk02"
+        },
+        {
+          "start": 41.19,
+          "end": 41.8633,
+          "speaker": "spk02"
+        }
+      ]
+    },
+    {
+      "session_id": "ltgmz",
+      "source_path": "audio/test/ltgmz.wav",
+      "source_file_bytes": 6709326,
+      "source_byte_range": [
+        800078,
+        2139693
+      ],
+      "window_start": 25.0,
+      "window_end": 66.863,
+      "wav_sha256": "b8a48d96632451bce468c4b9100e67171d74bfff4476c8ee3e414c96101c3502",
+      "rttm_sha256": "694192e46432bffd5cfc50de0ce5c59f91901c65d651344ceed9cfe6d292cb0f",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 10.5,
+          "speaker": "spk00"
+        },
+        {
+          "start": 11.16,
+          "end": 13.6,
+          "speaker": "spk00"
+        },
+        {
+          "start": 12.73,
+          "end": 13.5,
+          "speaker": "spk01"
+        },
+        {
+          "start": 13.98,
+          "end": 17.56,
+          "speaker": "spk01"
+        },
+        {
+          "start": 17.76,
+          "end": 19.39,
+          "speaker": "spk00"
+        },
+        {
+          "start": 19.88,
+          "end": 22.13,
+          "speaker": "spk01"
+        },
+        {
+          "start": 23.48,
+          "end": 26.35,
+          "speaker": "spk00"
+        },
+        {
+          "start": 27.09,
+          "end": 29.15,
+          "speaker": "spk01"
+        },
+        {
+          "start": 29.48,
+          "end": 35.21,
+          "speaker": "spk01"
+        },
+        {
+          "start": 35.44,
+          "end": 37.54,
+          "speaker": "spk01"
+        },
+        {
+          "start": 38.0,
+          "end": 39.13,
+          "speaker": "spk00"
+        },
+        {
+          "start": 39.86,
+          "end": 40.72,
+          "speaker": "spk01"
+        },
+        {
+          "start": 40.9,
+          "end": 41.8633,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "mkhie",
+      "source_path": "audio/test/mkhie.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        78,
+        1339693
+      ],
+      "window_start": 0.0,
+      "window_end": 41.863,
+      "wav_sha256": "2a7d3155f1a03d3edf465466279e3a2ec38849599a845d3d0cc17bbe77036102",
+      "rttm_sha256": "2b0a3c1360a9cbf1745ab2fc56ef7c3236b7e9ad46c1eaa481f4a2d462407333",
+      "segments": [
+        {
+          "start": 0.79,
+          "end": 1.32,
+          "speaker": "spk00"
+        },
+        {
+          "start": 2.02,
+          "end": 4.28,
+          "speaker": "spk00"
+        },
+        {
+          "start": 4.99,
+          "end": 6.74,
+          "speaker": "spk00"
+        },
+        {
+          "start": 7.69,
+          "end": 9.2,
+          "speaker": "spk01"
+        },
+        {
+          "start": 9.37,
+          "end": 10.33,
+          "speaker": "spk00"
+        },
+        {
+          "start": 10.53,
+          "end": 19.0,
+          "speaker": "spk02"
+        },
+        {
+          "start": 18.98,
+          "end": 20.44,
+          "speaker": "spk00"
+        },
+        {
+          "start": 20.44,
+          "end": 36.64,
+          "speaker": "spk01"
+        },
+        {
+          "start": 38.94,
+          "end": 41.8633,
+          "speaker": "spk02"
+        }
+      ]
+    },
+    {
+      "session_id": "nqyqm",
+      "source_path": "audio/test/nqyqm.wav",
+      "source_file_bytes": 33122382,
+      "source_byte_range": [
+        7411438,
+        8751085
+      ],
+      "window_start": 231.605,
+      "window_end": 273.469,
+      "wav_sha256": "fe6d887e11a87106e807018c1e97af7d9eabbb858575ad49d64f45d805536a47",
+      "rttm_sha256": "54b2b58d7fc4abbe31bc805f5499c1a0ba87f284f693eb791e6bdd9a22f14730",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 9.7346,
+          "speaker": "spk01"
+        },
+        {
+          "start": 10.5646,
+          "end": 11.2546,
+          "speaker": "spk00"
+        },
+        {
+          "start": 11.7346,
+          "end": 14.1146,
+          "speaker": "spk00"
+        },
+        {
+          "start": 14.4946,
+          "end": 19.7946,
+          "speaker": "spk00"
+        },
+        {
+          "start": 24.9546,
+          "end": 30.8146,
+          "speaker": "spk04"
+        },
+        {
+          "start": 31.3146,
+          "end": 32.3146,
+          "speaker": "spk04"
+        },
+        {
+          "start": 32.6146,
+          "end": 40.4446,
+          "speaker": "spk04"
+        },
+        {
+          "start": 40.5946,
+          "end": 41.8633,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "ouvtt",
+      "source_path": "audio/test/ouvtt.wav",
+      "source_file_bytes": 23283790,
+      "source_byte_range": [
+        14279534,
+        15619149
+      ],
+      "window_start": 446.233,
+      "window_end": 488.096,
+      "wav_sha256": "c1ae550757f96e24626136d887a0e05bcc9bc5ecaa90dccad69f567afc4762a0",
+      "rttm_sha256": "82c0718fe7a410953fe2ac606a45d2901994cb1eaf12e92f1e1905ceacec9fad",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.7271,
+          "speaker": "spk01"
+        },
+        {
+          "start": 2.6271,
+          "end": 5.2571,
+          "speaker": "spk00"
+        },
+        {
+          "start": 4.7571,
+          "end": 6.9371,
+          "speaker": "spk01"
+        },
+        {
+          "start": 6.9671,
+          "end": 12.5371,
+          "speaker": "spk00"
+        },
+        {
+          "start": 12.1171,
+          "end": 17.2871,
+          "speaker": "spk01"
+        },
+        {
+          "start": 17.5271,
+          "end": 19.6071,
+          "speaker": "spk00"
+        },
+        {
+          "start": 20.2471,
+          "end": 24.2071,
+          "speaker": "spk00"
+        },
+        {
+          "start": 21.2271,
+          "end": 21.6271,
+          "speaker": "spk01"
+        },
+        {
+          "start": 24.1271,
+          "end": 28.8771,
+          "speaker": "spk01"
+        },
+        {
+          "start": 30.4471,
+          "end": 30.8971,
+          "speaker": "spk01"
+        },
+        {
+          "start": 32.5471,
+          "end": 33.8071,
+          "speaker": "spk01"
+        },
+        {
+          "start": 35.2871,
+          "end": 38.5471,
+          "speaker": "spk00"
+        },
+        {
+          "start": 40.6671,
+          "end": 41.8633,
+          "speaker": "spk00"
+        }
+      ]
+    },
+    {
+      "session_id": "qadia",
+      "source_path": "audio/test/qadia.wav",
+      "source_file_bytes": 9875534,
+      "source_byte_range": [
+        710638,
+        2050253
+      ],
+      "window_start": 22.205,
+      "window_end": 64.068,
+      "wav_sha256": "3cb20a9ec6b66a0bf0bf189f257adee0b9b7012f1e834decf93b1080d190db5d",
+      "rttm_sha256": "6901a899a212fc32c287c7a2c15a99291e434bab663532090f5903b1b857c5c2",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.3152,
+          "speaker": "spk01"
+        },
+        {
+          "start": 0.7952,
+          "end": 3.1152,
+          "speaker": "spk01"
+        },
+        {
+          "start": 3.3852,
+          "end": 7.6552,
+          "speaker": "spk01"
+        },
+        {
+          "start": 8.3152,
+          "end": 13.0152,
+          "speaker": "spk01"
+        },
+        {
+          "start": 13.4252,
+          "end": 21.7752,
+          "speaker": "spk00"
+        },
+        {
+          "start": 23.1052,
+          "end": 30.0352,
+          "speaker": "spk00"
+        },
+        {
+          "start": 31.8552,
+          "end": 36.0852,
+          "speaker": "spk00"
+        },
+        {
+          "start": 37.0652,
+          "end": 41.8633,
+          "speaker": "spk02"
+        },
+        {
+          "start": 40.2952,
+          "end": 41.8633,
+          "speaker": "spk00"
+        }
+      ]
+    },
+    {
+      "session_id": "qeejz",
+      "source_path": "audio/test/qeejz.wav",
+      "source_file_bytes": 9494606,
+      "source_byte_range": [
+        7505518,
+        8845133
+      ],
+      "window_start": 234.545,
+      "window_end": 276.408,
+      "wav_sha256": "14cb37b389aa0d45018251c7ebde7f0cbb09b7b427e710ddce5a64771ece0326",
+      "rttm_sha256": "6144d48420c2da97aadb6e2014e71d1d437283b6ba8d3cc06e4bad6a0bcf9f88",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.595,
+          "speaker": "spk02"
+        },
+        {
+          "start": 4.595,
+          "end": 13.205,
+          "speaker": "spk01"
+        },
+        {
+          "start": 13.115,
+          "end": 15.675,
+          "speaker": "spk09"
+        },
+        {
+          "start": 16.135,
+          "end": 17.975,
+          "speaker": "spk09"
+        },
+        {
+          "start": 18.455,
+          "end": 21.895,
+          "speaker": "spk09"
+        },
+        {
+          "start": 21.895,
+          "end": 23.455,
+          "speaker": "spk00"
+        },
+        {
+          "start": 24.755,
+          "end": 26.915,
+          "speaker": "spk01"
+        },
+        {
+          "start": 27.615,
+          "end": 35.355,
+          "speaker": "spk01"
+        },
+        {
+          "start": 35.255,
+          "end": 36.935,
+          "speaker": "spk09"
+        },
+        {
+          "start": 38.215,
+          "end": 38.815,
+          "speaker": "spk01"
+        },
+        {
+          "start": 40.255,
+          "end": 41.8633,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "qlrry",
+      "source_path": "audio/test/qlrry.wav",
+      "source_file_bytes": 13912142,
+      "source_byte_range": [
+        6784878,
+        8124525
+      ],
+      "window_start": 212.025,
+      "window_end": 253.889,
+      "wav_sha256": "2d837db428bbf307927597f9288ca25d73260229f818754fa6cb29cc60358c30",
+      "rttm_sha256": "4b90d2e045f385bb92b8934968ff92f7ae1d7b8ba5c523a18623fb83ac3d5bb6",
+      "segments": [
+        {
+          "start": 1.4746,
+          "end": 5.0246,
+          "speaker": "spk00"
+        },
+        {
+          "start": 5.7346,
+          "end": 11.1346,
+          "speaker": "spk05"
+        },
+        {
+          "start": 11.6746,
+          "end": 12.3346,
+          "speaker": "spk04"
+        },
+        {
+          "start": 12.9946,
+          "end": 15.4946,
+          "speaker": "spk00"
+        },
+        {
+          "start": 16.0146,
+          "end": 21.2846,
+          "speaker": "spk05"
+        },
+        {
+          "start": 20.2246,
+          "end": 21.6046,
+          "speaker": "spk00"
+        },
+        {
+          "start": 22.9546,
+          "end": 28.0446,
+          "speaker": "spk00"
+        },
+        {
+          "start": 29.1046,
+          "end": 32.2146,
+          "speaker": "spk00"
+        },
+        {
+          "start": 34.9346,
+          "end": 41.8633,
+          "speaker": "spk00"
+        }
+      ]
+    },
+    {
+      "session_id": "ralnu",
+      "source_path": "audio/test/ralnu.wav",
+      "source_file_bytes": 5615694,
+      "source_byte_range": [
+        640078,
+        1979693
+      ],
+      "window_start": 20.0,
+      "window_end": 61.863,
+      "wav_sha256": "c9a2ee5b39705604a482ee0b6d7d6db399a5ea6a86b8f87530be5186443c72c6",
+      "rttm_sha256": "e9da72d9a147b29278a73361705ffbd009e11a76986567c5a262605e8283f0d0",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.88,
+          "speaker": "spk00"
+        },
+        {
+          "start": 3.84,
+          "end": 8.27,
+          "speaker": "spk01"
+        },
+        {
+          "start": 10.48,
+          "end": 15.29,
+          "speaker": "spk01"
+        },
+        {
+          "start": 16.27,
+          "end": 19.81,
+          "speaker": "spk01"
+        },
+        {
+          "start": 20.59,
+          "end": 25.26,
+          "speaker": "spk01"
+        },
+        {
+          "start": 26.13,
+          "end": 28.4,
+          "speaker": "spk01"
+        },
+        {
+          "start": 30.4,
+          "end": 38.6,
+          "speaker": "spk00"
+        },
+        {
+          "start": 39.36,
+          "end": 41.8633,
+          "speaker": "spk02"
+        },
+        {
+          "start": 41.58,
+          "end": 41.8633,
+          "speaker": "spk03"
+        }
+      ]
+    },
+    {
+      "session_id": "rxulz",
+      "source_path": "audio/test/rxulz.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        78,
+        1339693
+      ],
+      "window_start": 0.0,
+      "window_end": 41.863,
+      "wav_sha256": "9027c9ab3dbf55da0b56d79c98d377adeb5becd5d9d973d35fabc068abc31035",
+      "rttm_sha256": "51d8b38a383663578194652385ec09f01bfb02cffad437cb00773f9f3aa9b9db",
+      "segments": [
+        {
+          "start": 0.25,
+          "end": 3.99,
+          "speaker": "spk00"
+        },
+        {
+          "start": 4.5,
+          "end": 5.69,
+          "speaker": "spk01"
+        },
+        {
+          "start": 6.69,
+          "end": 7.47,
+          "speaker": "spk00"
+        },
+        {
+          "start": 8.61,
+          "end": 17.14,
+          "speaker": "spk02"
+        },
+        {
+          "start": 17.52,
+          "end": 18.77,
+          "speaker": "spk02"
+        },
+        {
+          "start": 19.34,
+          "end": 20.25,
+          "speaker": "spk02"
+        },
+        {
+          "start": 20.73,
+          "end": 31.04,
+          "speaker": "spk02"
+        },
+        {
+          "start": 32.52,
+          "end": 39.0,
+          "speaker": "spk02"
+        },
+        {
+          "start": 39.69,
+          "end": 41.8633,
+          "speaker": "spk02"
+        }
+      ]
+    },
+    {
+      "session_id": "sexgc",
+      "source_path": "audio/test/sexgc.wav",
+      "source_file_bytes": 26601550,
+      "source_byte_range": [
+        23069934,
+        24409549
+      ],
+      "window_start": 720.933,
+      "window_end": 762.796,
+      "wav_sha256": "609e0774a3a16dfca3f56e87f49560543c9d9e62dd14ff265057e467dfb2f256",
+      "rttm_sha256": "f76ecfdfc7109576d18d260b1304b62de671a79f1aa9d3adeb2eb8332ee2d080",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.5169,
+          "speaker": "spk00"
+        },
+        {
+          "start": 0.8969,
+          "end": 2.6669,
+          "speaker": "spk01"
+        },
+        {
+          "start": 2.3769,
+          "end": 4.2769,
+          "speaker": "spk02"
+        },
+        {
+          "start": 4.2669,
+          "end": 10.7869,
+          "speaker": "spk01"
+        },
+        {
+          "start": 8.7669,
+          "end": 9.6169,
+          "speaker": "spk02"
+        },
+        {
+          "start": 10.9769,
+          "end": 12.3169,
+          "speaker": "spk02"
+        },
+        {
+          "start": 13.5069,
+          "end": 23.5669,
+          "speaker": "spk01"
+        },
+        {
+          "start": 24.3469,
+          "end": 29.4669,
+          "speaker": "spk01"
+        },
+        {
+          "start": 30.4669,
+          "end": 41.8634,
+          "speaker": "spk01"
+        }
+      ]
+    },
+    {
+      "session_id": "thnuq",
+      "source_path": "audio/test/thnuq.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        11040302,
+        12379917
+      ],
+      "window_start": 345.007,
+      "window_end": 386.87,
+      "wav_sha256": "e7c62c922e9fe867c80a6f47404b78f7101c92f44c1d31abf246039c96ea76ab",
+      "rttm_sha256": "76839cc9e0a08a1214cec7b6468221a3e4a83ac5545d3a89702d9a9c61180075",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 14.5533,
+          "speaker": "spk00"
+        },
+        {
+          "start": 16.7733,
+          "end": 17.9133,
+          "speaker": "spk00"
+        },
+        {
+          "start": 17.9333,
+          "end": 19.3333,
+          "speaker": "spk01"
+        },
+        {
+          "start": 18.7733,
+          "end": 19.7433,
+          "speaker": "spk04"
+        },
+        {
+          "start": 19.0333,
+          "end": 19.7433,
+          "speaker": "spk00"
+        },
+        {
+          "start": 21.3933,
+          "end": 26.6733,
+          "speaker": "spk00"
+        },
+        {
+          "start": 27.4933,
+          "end": 28.6433,
+          "speaker": "spk00"
+        },
+        {
+          "start": 28.6933,
+          "end": 29.7433,
+          "speaker": "spk01"
+        },
+        {
+          "start": 30.0733,
+          "end": 32.7233,
+          "speaker": "spk00"
+        },
+        {
+          "start": 34.7233,
+          "end": 35.3833,
+          "speaker": "spk00"
+        },
+        {
+          "start": 36.1433,
+          "end": 37.0433,
+          "speaker": "spk00"
+        },
+        {
+          "start": 38.9933,
+          "end": 41.8633,
+          "speaker": "spk00"
+        }
+      ]
+    },
+    {
+      "session_id": "tkybe",
+      "source_path": "audio/test/tkybe.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        29963790,
+        31303405
+      ],
+      "window_start": 936.366,
+      "window_end": 978.229,
+      "wav_sha256": "7b2eef0d1a633dc240907416fe868bc89e3acdab216910a759afe9ec61208cda",
+      "rttm_sha256": "99eab8a8bda4c8ae2048b43c106a89f4a6ba01cd2d7e5fcb67049573b245cbd8",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.8642,
+          "speaker": "spk02"
+        },
+        {
+          "start": 5.4942,
+          "end": 12.1042,
+          "speaker": "spk02"
+        },
+        {
+          "start": 13.0742,
+          "end": 17.8942,
+          "speaker": "spk02"
+        },
+        {
+          "start": 17.9742,
+          "end": 19.3042,
+          "speaker": "spk01"
+        },
+        {
+          "start": 18.4842,
+          "end": 18.9242,
+          "speaker": "spk02"
+        },
+        {
+          "start": 20.1342,
+          "end": 31.5942,
+          "speaker": "spk05"
+        },
+        {
+          "start": 32.6742,
+          "end": 33.4242,
+          "speaker": "spk01"
+        },
+        {
+          "start": 34.9542,
+          "end": 39.1142,
+          "speaker": "spk02"
+        },
+        {
+          "start": 39.9642,
+          "end": 41.8633,
+          "speaker": "spk02"
+        }
+      ]
+    },
+    {
+      "session_id": "uedkc",
+      "source_path": "audio/test/uedkc.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        11828462,
+        13168109
+      ],
+      "window_start": 369.637,
+      "window_end": 411.501,
+      "wav_sha256": "ebf552999519494e602c42d0d071ccccb9d2f0d916a465328675628cc9cfd5bd",
+      "rttm_sha256": "823c00db23da442e61f4ef11b5f1e65be790c5fc7cc135487725e476cd1d31d8",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.3628,
+          "speaker": "spk02"
+        },
+        {
+          "start": 3.9328,
+          "end": 4.8328,
+          "speaker": "spk00"
+        },
+        {
+          "start": 4.7828,
+          "end": 7.0228,
+          "speaker": "spk03"
+        },
+        {
+          "start": 7.8628,
+          "end": 8.4428,
+          "speaker": "spk03"
+        },
+        {
+          "start": 12.8028,
+          "end": 16.8628,
+          "speaker": "spk00"
+        },
+        {
+          "start": 17.3328,
+          "end": 26.3628,
+          "speaker": "spk03"
+        },
+        {
+          "start": 27.5028,
+          "end": 41.8634,
+          "speaker": "spk03"
+        }
+      ]
+    },
+    {
+      "session_id": "uhfrw",
+      "source_path": "audio/test/uhfrw.wav",
+      "source_file_bytes": 28555342,
+      "source_byte_range": [
+        7517006,
+        8856621
+      ],
+      "window_start": 234.904,
+      "window_end": 276.767,
+      "wav_sha256": "2854a39fab38cfc86862cab076fe8190f06f130b12c2cef1ac54d6ab1bac1d7a",
+      "rttm_sha256": "21cfcdc703dd134d4f2fb88c1a0b428b1f6483763495affc82e9bff4dce59c62",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.7065,
+          "speaker": "spk00"
+        },
+        {
+          "start": 4.9465,
+          "end": 6.7665,
+          "speaker": "spk01"
+        },
+        {
+          "start": 9.1365,
+          "end": 16.8165,
+          "speaker": "spk01"
+        },
+        {
+          "start": 16.7665,
+          "end": 19.0965,
+          "speaker": "spk00"
+        },
+        {
+          "start": 18.5765,
+          "end": 18.9865,
+          "speaker": "spk01"
+        },
+        {
+          "start": 19.8565,
+          "end": 30.9565,
+          "speaker": "spk01"
+        },
+        {
+          "start": 31.6265,
+          "end": 41.8634,
+          "speaker": "spk00"
+        },
+        {
+          "start": 39.4965,
+          "end": 40.4165,
+          "speaker": "spk02"
+        }
+      ]
+    },
+    {
+      "session_id": "usqam",
+      "source_path": "audio/test/usqam.wav",
+      "source_file_bytes": 19241038,
+      "source_byte_range": [
+        8378830,
+        9718445
+      ],
+      "window_start": 261.836,
+      "window_end": 303.699,
+      "wav_sha256": "b021bf0718ad1947710b221c4394e30f17fa47126bac169d2e8c048e976650c5",
+      "rttm_sha256": "75b2ab6fc12fd961f9b2dc577050be8f822d087f4455dd9223e320b4ffc13e21",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.1941,
+          "speaker": "spk11"
+        },
+        {
+          "start": 2.7741,
+          "end": 5.9741,
+          "speaker": "spk11"
+        },
+        {
+          "start": 6.6241,
+          "end": 10.9641,
+          "speaker": "spk00"
+        },
+        {
+          "start": 10.8741,
+          "end": 15.1641,
+          "speaker": "spk12"
+        },
+        {
+          "start": 15.4141,
+          "end": 18.2041,
+          "speaker": "spk00"
+        },
+        {
+          "start": 18.5541,
+          "end": 19.5541,
+          "speaker": "spk12"
+        },
+        {
+          "start": 20.3941,
+          "end": 25.0441,
+          "speaker": "spk12"
+        },
+        {
+          "start": 24.9341,
+          "end": 25.4341,
+          "speaker": "spk00"
+        },
+        {
+          "start": 25.5441,
+          "end": 30.4741,
+          "speaker": "spk12"
+        },
+        {
+          "start": 30.9141,
+          "end": 41.8633,
+          "speaker": "spk12"
+        }
+      ]
+    },
+    {
+      "session_id": "vgaez",
+      "source_path": "audio/test/vgaez.wav",
+      "source_file_bytes": 5666894,
+      "source_byte_range": [
+        160078,
+        1499693
+      ],
+      "window_start": 5.0,
+      "window_end": 46.863,
+      "wav_sha256": "b98d65ab7c33684e747b84d832d0d9b685769f792bc50eaf9009dba4e50bcda6",
+      "rttm_sha256": "d5e56cd18d1aec04a45825b04a8404800cdee338eacfcb807808d5a90c3dedc5",
+      "segments": [
+        {
+          "start": 3.97,
+          "end": 7.37,
+          "speaker": "spk00"
+        },
+        {
+          "start": 7.65,
+          "end": 12.48,
+          "speaker": "spk00"
+        },
+        {
+          "start": 12.9,
+          "end": 17.01,
+          "speaker": "spk00"
+        },
+        {
+          "start": 17.45,
+          "end": 18.45,
+          "speaker": "spk00"
+        },
+        {
+          "start": 18.71,
+          "end": 22.25,
+          "speaker": "spk01"
+        },
+        {
+          "start": 22.32,
+          "end": 30.65,
+          "speaker": "spk00"
+        },
+        {
+          "start": 30.67,
+          "end": 33.46,
+          "speaker": "spk02"
+        },
+        {
+          "start": 33.27,
+          "end": 37.9,
+          "speaker": "spk03"
+        },
+        {
+          "start": 38.04,
+          "end": 41.29,
+          "speaker": "spk00"
+        }
+      ]
+    },
+    {
+      "session_id": "vncid",
+      "source_path": "audio/test/vncid.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        29962734,
+        31302381
+      ],
+      "window_start": 936.333,
+      "window_end": 978.197,
+      "wav_sha256": "daf18f6792a8a175ce9f0164cbe9e81f23d8db6ccb30398037b06bb03c9e805d",
+      "rttm_sha256": "770a78b558c35ee2bb773da41efdfd0c2b8177078077d693c7e734d8006ea621",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.0665,
+          "speaker": "spk11"
+        },
+        {
+          "start": 2.4365,
+          "end": 16.4665,
+          "speaker": "spk08"
+        },
+        {
+          "start": 16.6065,
+          "end": 26.9565,
+          "speaker": "spk04"
+        },
+        {
+          "start": 27.4865,
+          "end": 30.0265,
+          "speaker": "spk04"
+        },
+        {
+          "start": 32.8765,
+          "end": 35.1265,
+          "speaker": "spk04"
+        },
+        {
+          "start": 35.9565,
+          "end": 39.7465,
+          "speaker": "spk08"
+        },
+        {
+          "start": 39.7765,
+          "end": 40.1265,
+          "speaker": "spk11"
+        },
+        {
+          "start": 40.1465,
+          "end": 41.8633,
+          "speaker": "spk08"
+        }
+      ]
+    },
+    {
+      "session_id": "vtzqw",
+      "source_path": "audio/test/vtzqw.wav",
+      "source_file_bytes": 22986830,
+      "source_byte_range": [
+        9217166,
+        10556781
+      ],
+      "window_start": 288.034,
+      "window_end": 329.897,
+      "wav_sha256": "0eaed4f7385d6c6147b5fb22e8e4478f67e6f52f6c2ec69885fc2f368ce02b40",
+      "rttm_sha256": "d2f71dbad02fb52d0df40095a133df688350d19b217285830e39373261a81506",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 9.3764,
+          "speaker": "spk00"
+        },
+        {
+          "start": 11.5664,
+          "end": 12.5464,
+          "speaker": "spk00"
+        },
+        {
+          "start": 12.2564,
+          "end": 12.9264,
+          "speaker": "spk09"
+        },
+        {
+          "start": 13.7564,
+          "end": 15.5464,
+          "speaker": "spk09"
+        },
+        {
+          "start": 16.8664,
+          "end": 17.6064,
+          "speaker": "spk09"
+        },
+        {
+          "start": 18.1364,
+          "end": 19.5164,
+          "speaker": "spk09"
+        },
+        {
+          "start": 20.3864,
+          "end": 22.2864,
+          "speaker": "spk00"
+        },
+        {
+          "start": 22.6464,
+          "end": 29.1664,
+          "speaker": "spk10"
+        },
+        {
+          "start": 29.2064,
+          "end": 33.2864,
+          "speaker": "spk02"
+        },
+        {
+          "start": 30.7764,
+          "end": 31.7764,
+          "speaker": "spk10"
+        },
+        {
+          "start": 34.4464,
+          "end": 37.5264,
+          "speaker": "spk00"
+        },
+        {
+          "start": 38.4264,
+          "end": 41.8633,
+          "speaker": "spk00"
+        }
+      ]
+    },
+    {
+      "session_id": "wemos",
+      "source_path": "audio/test/wemos.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        8674318,
+        10013933
+      ],
+      "window_start": 271.07,
+      "window_end": 312.933,
+      "wav_sha256": "0cea70fbb13bb42561b772ab4b29bea0d47d85b20e2343ecfb9e8109ca94561c",
+      "rttm_sha256": "87a9aed44f733791a3aa29c95ec1eae83176cbb0dc830a5f9d0f0553e9f3b5c7",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.9104,
+          "speaker": "spk01"
+        },
+        {
+          "start": 1.7204,
+          "end": 5.5504,
+          "speaker": "spk01"
+        },
+        {
+          "start": 6.3104,
+          "end": 8.4104,
+          "speaker": "spk04"
+        },
+        {
+          "start": 6.8104,
+          "end": 7.2304,
+          "speaker": "spk01"
+        },
+        {
+          "start": 11.0804,
+          "end": 17.0504,
+          "speaker": "spk04"
+        },
+        {
+          "start": 16.9104,
+          "end": 22.4304,
+          "speaker": "spk05"
+        },
+        {
+          "start": 25.6004,
+          "end": 37.9204,
+          "speaker": "spk05"
+        },
+        {
+          "start": 39.7904,
+          "end": 41.8634,
+          "speaker": "spk05"
+        }
+      ]
+    },
+    {
+      "session_id": "xkgos",
+      "source_path": "audio/test/xkgos.wav",
+      "source_file_bytes": 34000974,
+      "source_byte_range": [
+        15962606,
+        17302253
+      ],
+      "window_start": 498.829,
+      "window_end": 540.693,
+      "wav_sha256": "aefbf32a41e3af953c5a439b32c22f66d6cd7f8cca52f1fe5eb34cd0ce751bae",
+      "rttm_sha256": "d3b6bb68f79eff28317cd7cb10f0ba629a894ad6793038ac0a8a5a504bc10a1a",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.6508,
+          "speaker": "spk01"
+        },
+        {
+          "start": 1.9808,
+          "end": 3.0808,
+          "speaker": "spk00"
+        },
+        {
+          "start": 3.0308,
+          "end": 10.7608,
+          "speaker": "spk01"
+        },
+        {
+          "start": 12.8008,
+          "end": 13.2608,
+          "speaker": "spk01"
+        },
+        {
+          "start": 14.6508,
+          "end": 15.6708,
+          "speaker": "spk01"
+        },
+        {
+          "start": 16.2408,
+          "end": 25.8408,
+          "speaker": "spk01"
+        },
+        {
+          "start": 26.8208,
+          "end": 29.5108,
+          "speaker": "spk00"
+        },
+        {
+          "start": 27.8008,
+          "end": 29.1508,
+          "speaker": "spk02"
+        },
+        {
+          "start": 34.4008,
+          "end": 41.8633,
+          "speaker": "spk00"
+        }
+      ]
+    },
+    {
+      "session_id": "xlsme",
+      "source_path": "audio/test/xlsme.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        35485870,
+        36825485
+      ],
+      "window_start": 1108.931,
+      "window_end": 1150.794,
+      "wav_sha256": "eb30176ba0aa427b5b78ffc28181af2bd6a9528c56fb6fcf9b85367c70264f7a",
+      "rttm_sha256": "51da405b9cecead0d26ad82cc4fd313862f4d18ad076bab78d7ce1b51b7609ca",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 10.5391,
+          "speaker": "spk05"
+        },
+        {
+          "start": 12.1791,
+          "end": 13.7691,
+          "speaker": "spk00"
+        },
+        {
+          "start": 15.3191,
+          "end": 20.4191,
+          "speaker": "spk02"
+        },
+        {
+          "start": 20.9791,
+          "end": 21.5091,
+          "speaker": "spk02"
+        },
+        {
+          "start": 22.6991,
+          "end": 30.4991,
+          "speaker": "spk02"
+        },
+        {
+          "start": 31.2491,
+          "end": 32.3191,
+          "speaker": "spk00"
+        },
+        {
+          "start": 32.7491,
+          "end": 40.0391,
+          "speaker": "spk05"
+        },
+        {
+          "start": 40.7091,
+          "end": 41.8633,
+          "speaker": "spk05"
+        }
+      ]
+    },
+    {
+      "session_id": "ygrip",
+      "source_path": "audio/test/ygrip.wav",
+      "source_file_bytes": 9510990,
+      "source_byte_range": [
+        347854,
+        1687469
+      ],
+      "window_start": 10.868,
+      "window_end": 52.731,
+      "wav_sha256": "c210cd65be07ac2571efe74288a1069003df3c2e94a59b3921bebb60e43e0168",
+      "rttm_sha256": "8ae36c3c443ad9ec4074923ceb7e6061563ca381f62263fb15e76c303f42106f",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 10.6521,
+          "speaker": "spk00"
+        },
+        {
+          "start": 11.0321,
+          "end": 12.7721,
+          "speaker": "spk00"
+        },
+        {
+          "start": 14.0021,
+          "end": 17.7221,
+          "speaker": "spk01"
+        },
+        {
+          "start": 18.2621,
+          "end": 19.7421,
+          "speaker": "spk01"
+        },
+        {
+          "start": 18.7521,
+          "end": 20.6121,
+          "speaker": "spk02"
+        },
+        {
+          "start": 20.5721,
+          "end": 23.9221,
+          "speaker": "spk01"
+        },
+        {
+          "start": 24.7821,
+          "end": 37.5621,
+          "speaker": "spk00"
+        },
+        {
+          "start": 38.0121,
+          "end": 38.6721,
+          "speaker": "spk00"
+        },
+        {
+          "start": 40.0921,
+          "end": 41.8634,
+          "speaker": "spk03"
+        }
+      ]
+    },
+    {
+      "session_id": "zowse",
+      "source_path": "audio/test/zowse.wav",
+      "source_file_bytes": 38402126,
+      "source_byte_range": [
+        78,
+        1339693
+      ],
+      "window_start": 0.0,
+      "window_end": 41.863,
+      "wav_sha256": "cbb2ebce686ae0237ed895d4578c6538610d31f71751649e7312703ef8b5de91",
+      "rttm_sha256": "6919e90811e68fef0ce0fb56ac49bb19a8627f78d1f339695d89d4807fe5a037",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.37,
+          "speaker": "spk00"
+        },
+        {
+          "start": 1.2,
+          "end": 5.16,
+          "speaker": "spk00"
+        },
+        {
+          "start": 7.61,
+          "end": 8.5,
+          "speaker": "spk00"
+        },
+        {
+          "start": 9.0,
+          "end": 10.11,
+          "speaker": "spk01"
+        },
+        {
+          "start": 11.07,
+          "end": 28.92,
+          "speaker": "spk01"
+        },
+        {
+          "start": 29.93,
+          "end": 37.64,
+          "speaker": "spk01"
+        },
+        {
+          "start": 37.94,
+          "end": 39.18,
+          "speaker": "spk00"
+        },
+        {
+          "start": 39.33,
+          "end": 41.8633,
+          "speaker": "spk02"
+        }
+      ]
+    },
+    {
+      "session_id": "zqidv",
+      "source_path": "audio/test/zqidv.wav",
+      "source_file_bytes": 32358478,
+      "source_byte_range": [
+        9152110,
+        10491725
+      ],
+      "window_start": 286.001,
+      "window_end": 327.864,
+      "wav_sha256": "40eadc978e5bbd748a1a519652e75314ddca08024c61e534a3611b9e86791329",
+      "rttm_sha256": "eaa76b3e05c1f74b06c0c99c50cb2bd1d97d65638634ac33e159fc684edb5b70",
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.5089,
+          "speaker": "spk01"
+        },
+        {
+          "start": 1.6989,
+          "end": 6.0889,
+          "speaker": "spk05"
+        },
+        {
+          "start": 7.4789,
+          "end": 13.9989,
+          "speaker": "spk01"
+        },
+        {
+          "start": 14.7489,
+          "end": 18.0189,
+          "speaker": "spk01"
+        },
+        {
+          "start": 18.0689,
+          "end": 20.6889,
+          "speaker": "spk02"
+        },
+        {
+          "start": 22.0389,
+          "end": 27.5589,
+          "speaker": "spk05"
+        },
+        {
+          "start": 25.6089,
+          "end": 26.7689,
+          "speaker": "spk01"
+        },
+        {
+          "start": 27.3089,
+          "end": 27.7089,
+          "speaker": "spk01"
+        },
+        {
+          "start": 28.7089,
+          "end": 31.6489,
+          "speaker": "spk06"
+        },
+        {
+          "start": 32.4789,
+          "end": 39.3089,
+          "speaker": "spk01"
+        },
+        {
+          "start": 41.0489,
+          "end": 41.8634,
+          "speaker": "spk01"
+        }
+      ]
+    }
+  ]
+}

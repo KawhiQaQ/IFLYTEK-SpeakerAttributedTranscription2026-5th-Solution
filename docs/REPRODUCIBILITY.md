@@ -1,25 +1,35 @@
-# Reproducibility guide
+# Reproducibility Guide
 
-## 1. Environment
+This guide reproduces the released CAST system in two supported modes:
 
-The development environment uses Python 3.10, PyTorch 2.11.0+cu128, CUDA
-12.8, and one RTX 3090. The exact Conda and Python dependency snapshots are
-stored in `configs/environment.yml` and `configs/requirements.lock.txt`.
+1. download the released competition-trained checkpoints and run inference;
+2. retrain every learned component with the frozen configuration, then run inference.
+
+All commands below are executed from the repository root. The recorded platform
+is Ubuntu 22.04 with one NVIDIA RTX 3090 (24 GB), CUDA 12.8, and at least 80 GB
+of free disk space.
+
+## 1. Clone and install the environment
 
 ```bash
+git clone https://github.com/KawhiQaQ/IFLYTEK-SpeakerAttributedTranscription2026-5th-Solution.git
+cd IFLYTEK-SpeakerAttributedTranscription2026-5th-Solution
+
 conda env create -f configs/environment.yml
-conda activate xunfei-s2
+conda activate cast
+bash scripts/install_runtime.sh
+conda deactivate && conda activate cast
 ```
 
-Compile the released Python sources before running the pipeline:
+The installer pins the CUDA build of PyTorch, installs the main runtime, and
+creates `.venv-moss/` for MOSS-Transcribe-Diarize. The isolated environment is
+required because the released Qwen-ASR and MOSS code use different Transformers
+versions.
 
-```bash
-make check
-```
+## 2. Prepare the official data
 
-## 2. Data layout
-
-Place the official competition data under the repository root:
+Download the official development set, test set, and submission example from
+the competition page, then use this exact layout:
 
 ```text
 data/
@@ -28,127 +38,191 @@ data/
 │   └── ref.seglst.json
 ├── test/
 │   └── wav/*.wav
-└── sample_submission/*.json
+└── sample_submission/
+    └── submit_sample.json
 ```
 
-The external training subset uses public VoxConverse audio and RTTM labels.
-Its selection procedure and restrictions are documented in
-`docs/DATA_MODEL_PROVENANCE.md`.
+Validate the audio format, session IDs, reference, sample submission, and the
+released five-fold split:
 
-## 3. Model preparation
+```bash
+python scripts/prepare_official_data.py .
+```
 
-Download all public pretrained models:
+The script requires 16 kHz, 16-bit, mono WAV files and never modifies the
+official inputs.
+
+The three original competition archives can be unpacked without manual file
+renaming:
+
+```bash
+mkdir -p data/sample_submission
+unzip dev.zip -d data
+unzip test.zip -d data
+unzip -j submit_sample.zip submit_sample.json -d data/sample_submission
+python scripts/prepare_official_data.py .
+```
+
+## 3. Install the released best checkpoints
+
+Download `CAST_checkpoints` from
+[Baidu Netdisk](https://pan.baidu.com/s/1TZNc5W9h0CyZPdFnph8RfA?pwd=63pj)
+(extraction code: `63pj`). Merge the downloaded model tree into the clone and
+normalize the two legacy contextual-checkpoint paths:
+
+```bash
+mkdir -p models
+cp -a /path/to/CAST_checkpoints/models/. ./models/
+python scripts/normalize_checkpoint_layout.py .
+python scripts/verify_release.py .
+```
+
+`checkpoints.sha256` records all eight learned artifacts used by the final
+system. `verify_release.py` accepts the original Baidu archive metadata as well
+as the path-normalized release metadata.
+
+Public ASR, diarization, and speaker-encoder checkpoints are not duplicated in
+the Baidu archive. `test.sh` and `train.sh` download them automatically according
+to `configs/public_models.yaml`. In regions where Hugging Face is unavailable,
+set the mirror before running either entry point:
+
+```bash
+export HF_ENDPOINT=https://hf-mirror.com
+```
+
+To download them separately:
 
 ```bash
 python scripts/download_public_models.py --root . --skip-existing
 ```
 
-The official model IDs and local destinations are recorded in
-`configs/public_models.yaml`. Competition-trained checkpoints will be made
-available through the Baidu Netdisk entry in the root README. Until that link
-is published, the training code and model definitions are available, but exact
-checkpoint-based inference cannot be reproduced from a clean clone.
+## 4. Inference with the released best checkpoints
 
-## 4. Transcription models
+Run the complete frozen inference graph:
 
-The lexical backbone consists of Qwen3-ASR, FireRedASR2-AED,
-FireRedASR2-LLM, and MOSS-Transcribe-Diarize. The corresponding entry points
-are:
+```bash
+bash test.sh
+```
+
+The script validates the official inputs and custom checkpoints, downloads any
+missing public checkpoints, and executes the following stages in order:
+
+1. speaker-count features;
+2. Qwen3-ASR, FireRedASR2-AED, FireRedASR2-LLM, and MOSS transcription;
+3. offline and adapted streaming Sortformer candidates;
+4. label-free diarization routing;
+5. CAMPPlus, ERes2NetV2, and WeSpeaker multiscale speaker features;
+6. boundary-aware acoustic graph and multi-ASR consensus;
+7. context-aware speaker Transformer refinement;
+8. novel-speaker verification and overlap consistency.
+
+The final UTF-8 SegLST prediction is written to:
 
 ```text
-scripts/run_qwen3_asr.py
-scripts/run_fireredasr2_aed.py
-scripts/run_fireredasr2_llm.py
-scripts/run_moss_transcribe_diarize.py
+submissions/final_solution.seglst.json
 ```
 
-Each entry point accepts the repository root and a YAML configuration:
+If the public models have already been downloaded, disable network access:
 
 ```bash
-python scripts/run_qwen3_asr.py . --config <qwen-config> --fold 0
-python scripts/run_fireredasr2_aed.py . --config <firered-aed-config> --fold 0
-python scripts/run_fireredasr2_llm.py . --config <firered-llm-config> --fold 0
-python scripts/run_moss_transcribe_diarize.py . --config <moss-config> --fold 0
+CAST_SKIP_PUBLIC_MODEL_DOWNLOAD=1 bash test.sh
 ```
 
-Use `--full-dev` only when the architecture and epoch budget are frozen and a
-deployment model is being fitted.
-
-## 5. Acoustic speaker representations
-
-Sortformer generates candidate activity tracks. CAMPPlus and ERes2NetV2
-features are extracted at 0.75, 1.5, and 3.0-second scales:
+Long inference jobs can be resumed by stage number. For example:
 
 ```bash
-python scripts/prepare_speaker_graph_fold.py . \
-  --config <speaker-feature-config> --fold 0
+CAST_SKIP_PUBLIC_MODEL_DOWNLOAD=1 \
+bash test.sh --from-stage 9 --to-stage 17
 ```
 
-The fold-preparation script checks that training and validation sessions are
-disjoint before reading any label. Test features are generated by the
-label-free counterpart `scripts/prepare_speaker_graph_test.py`.
-
-Independent WeSpeaker features for novel-speaker verification are extracted at
-1, 2, and 4-second scales:
+Inspect all 17 expanded commands without loading data or models:
 
 ```bash
-python scripts/extract_wespeaker_multiscale_features.py . \
-  --config <wespeaker-config> --scope dev
+bash test.sh --dry-run
 ```
 
-## 6. Context-aware speaker model
+The released reference prediction is `reference/final_submission.seglst.json`;
+its SHA-256 is
+`033b699bfcfbcb9da3a6ae9aa0188d3d31b2de1bc8e82fca8a422d20415d6630`.
 
-The contextual Transformer consumes aligned ERes2NetV2 and CAMPPlus sequences.
-The fold-pure trainer performs public-data pretraining followed by official-data
-adaptation. After model selection, the full-development trainer refits the
-frozen architecture:
+## 5. Retrain the complete system
+
+Run:
 
 ```bash
-python scripts/train_contextual_speaker_metric_full.py . \
-  --config <contextual-model-config> --overwrite
+bash train.sh
 ```
 
-The expected input dimensions and network structure are described in
-`docs/ARCHITECTURE.md`. A smoke run can be launched with `--smoke` before the
-full fit.
+This command performs the complete frozen training recipe. It downloads and
+verifies the fixed 48-window VoxConverse v0.3 subset described by
+`manifests/voxconverse_fixed_48.json`, extracts the required acoustic features,
+trains every learned speaker component, deterministically generates Sortformer
+mixtures, and adapts the streaming Sortformer.
 
-## 7. Novel-speaker verifier
+The orchestrator executes these 16 stages:
 
-The WeSpeaker-based existence model is trained only after its feature schema
-and probability boundary have been frozen:
+| Stage | Learned component or preparation | Frozen configuration |
+|---:|---|---|
+| 1-2 | speaker-count features and random forest | code defaults and `configs/cv/folds_v1.csv` |
+| 3 | CAMPPlus development features | `configs/experiments/v25_multiscale_speaker_graph.yaml` |
+| 4 | ERes2NetV2 development features | `configs/experiments/v134_eres2netv2_multiscale_metric_features.yaml` |
+| 5-6 | VoxConverse ERes2NetV2 and CAMPPlus features | the same two feature configurations |
+| 7 | external initialization of the contextual speaker Transformer | `configs/experiments/contextual_speaker_transformer_external_init.yaml` |
+| 8 | CAMPPlus boundary metric | `configs/experiments/v92_boundary_metric_full.yaml` |
+| 9 | ERes2NetV2 boundary metric | `configs/deployment/v156_eres2netv2_boundary_metric_full.yaml` |
+| 10 | dual-encoder speaker-purity head | `configs/deployment/v156_speaker_purity_full.yaml` |
+| 11 | full-development contextual speaker Transformer | `configs/deployment/v534_voxconverse_context_full.yaml` |
+| 12-13 | deterministic mixtures and streaming Sortformer adaptation | `configs/experiments/v14_sortformer_synthetic.yaml` and `v14_sortformer_v2_1_synthetic_finetune.yaml` |
+| 14-16 | WeSpeaker features, two-fold OOF cache, and novel-speaker verifier | `configs/experiments/v171_wespeaker_resnet34_multiscale_features.yaml` and `configs/deployment/v174_wespeaker_novel_existence_energy_full.yaml` |
+
+All model dimensions, learning rates, batch sizes, fixed epoch counts, random
+seeds, and checkpoint paths are stored in the listed configuration files.
+Training outputs are written under `models/`; features, deterministic mixtures,
+and logs are written under `data/` and `outputs/`.
+
+Inspect the complete training command graph without starting a GPU job:
 
 ```bash
-python scripts/train_novel_speaker_energy_full.py . \
-  --config <novel-speaker-config> --overwrite
+bash train.sh --dry-run
 ```
 
-It uses permutation-invariant cluster statistics and a regularized logistic
-classifier. Test features participate in inference only.
-
-## 8. Final consistency constraint
-
-After neural speaker refinement, apply the same-speaker overlap constraint:
+Training can be resumed at a stage boundary:
 
 ```bash
-python scripts/postprocess_self_overlap_source_restore.py \
-  --refined <contextual-hypothesis.json> \
-  --source <acoustic-graph-hypothesis.json> \
-  --output submissions/final.seglst.json \
-  --audit submissions/final.audit.json \
-  --min-overlap 0.20
+CAST_SKIP_PUBLIC_MODEL_DOWNLOAD=1 \
+bash train.sh --from-stage 8 --to-stage 16
 ```
 
-The script verifies that only speaker labels are changed. Words and timestamps
-remain frozen.
+After training, infer with the newly generated checkpoints instead of enforcing
+the released byte hashes:
 
-## 9. Evaluation
+```bash
+CAST_SKIP_PUBLIC_MODEL_DOWNLOAD=1 \
+bash test.sh --allow-retrained-checkpoints
+```
+
+Floating-point checkpoints may not be byte-identical across GPU architectures,
+but the architecture, data, seeds, and optimization schedule are fixed.
+
+## 6. Evaluation
 
 ```bash
 meeteval-wer tcpwer \
   -r data/dev/ref.seglst.json \
-  -h path/to/hyp.seglst.json \
+  -h path/to/development_prediction.seglst.json \
   --collar 5
 ```
 
-Aggregate fold results using total error counts and total reference tokens.
-Do not average rounded fold-level tcpWER values.
+For cross-validation, aggregate total errors and total reference tokens before
+computing pooled tcpWER; do not average rounded fold-level scores.
+
+## 7. Repository self-check
+
+```bash
+make check
+make dry-run
+```
+
+`make check` compiles all released Python files and verifies the source tree,
+reference prediction, and installed custom checkpoints. `make dry-run` expands
+the complete training and inference graphs without starting a model job.

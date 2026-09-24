@@ -1,0 +1,8 @@
+# Main CAST runtime. The CUDA-specific PyTorch wheels are installed from the
+# official PyTorch index. Use scripts/install_runtime.sh for the complete
+# and tested installation, including no-dependency installs and the isolated
+# MOSS Transformers environment.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+torchaudio==2.11.0+cu128
+-r configs/runtime_requirements.txt

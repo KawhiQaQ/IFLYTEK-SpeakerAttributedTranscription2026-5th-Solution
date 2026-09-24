@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fireredasr2s"
+version = "0.0.1"
+description = "Industrial-grade ASR system with VAD, LID, and punctuation prediction"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.11"
+dependencies = [
+    "torch==2.10.0",
+    "torchaudio==2.10.0",
+    "transformers==5.1.0",
+    "numpy==2.4.2",
+    "cn2an==0.5.23",
+    "kaldiio==2.18.1",
+    "sentencepiece==0.2.1",
+    "soundfile==0.13.1",
+    "textgrid==1.6.1",
+]
+
+[project.scripts]
+fireredasr2s-cli = "fireredasr2s.fireredasr2s_cli:cli_main"
+
+[tool.setuptools.packages.find]
+include = ["fireredasr2s*"]
+
+[tool.uv.pip]
+extra-index-url = ["https://download.pytorch.org/whl/cu118"]

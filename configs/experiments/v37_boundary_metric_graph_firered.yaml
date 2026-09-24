@@ -1,0 +1,25 @@
+name: v37_boundary_metric_graph_firered
+description: FireRedASR2-AED tokens clustered by the boundary-robust V36 speaker metric; V20 tracks supply only label-free microturn boundaries.
+cv_version: v1
+fold: 0
+seed: 3407
+feature_experiment: v25_multiscale_speaker_graph
+metric_checkpoint: models/speaker_metric/v36_boundary_robust_metric_adapter/fold_{fold}/metric_adapter.pt
+asr_source_experiment: v28_fireredasr2_aed
+track_source_experiment: v20_diarization_quality_router
+model:
+  scales: 3
+  embedding_dimension: 192
+node:
+  max_seconds: 1.2
+  max_gap_seconds: 0.6
+clustering:
+  same_speaker_posterior: 0.5
+  min_speakers: 2
+  max_speakers: 6
+assignment:
+  max_gap_seconds: 0.8
+audit:
+  fold_pure: true
+  uses_validation_labels: false
+  uses_test_data: false

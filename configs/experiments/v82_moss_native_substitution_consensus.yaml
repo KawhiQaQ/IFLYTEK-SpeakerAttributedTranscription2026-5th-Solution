@@ -1,0 +1,14 @@
+name: v82_moss_native_substitution_consensus
+description: Preserve MOSS native tracks and detected content; accept only majority-agreed ASR substitutions.
+cv_version: v1
+fold: 0
+segment_anchor_experiment: v74_moss_transcribe_diarize
+voter_experiments:
+  - v28_fireredasr2_aed
+  - v4_qwen3_asr_1.7b
+  - v32_fireredasr2_llm
+min_voter_agreement: 2
+allow_deletions: false
+audit:
+  uses_validation_labels: false
+  uses_test_data: false

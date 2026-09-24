@@ -18,7 +18,7 @@
 - **互补转写模型：** Qwen3-ASR、FireRedASR2-AED、FireRedASR2-LLM 和 MOSS-Transcribe-Diarize 提供不同的文本与时间假设。
 - **多视角说话人表征：** 通过 CAMPPlus、ERes2NetV2 和 WeSpeaker 表征共同优化流式与离线 Sortformer 说话人轨道。
 - **上下文角色建模：** 双编码器 Transformer 利用整段对话上下文处理局部说话人归属歧义。
-- **分布匹配的外部数据：** 仅依据汇总对话结构统计挑选少量公开 VoxConverse 数据，不使用比赛测试集标签或伪标签。
+- **固定公开外部数据：** 上下文说话人模型使用 48 个可重现的 VoxConverse 公开音频窗及 RTTM 标注进行初始化。
 - **严格交叉验证：** 所有监督组件均排除当前验证折，选模指标采用 pooled tcpWER 错误数。
 
 ## 比赛结果
@@ -47,17 +47,19 @@ tcpWER 越低越好。本地成绩为 5 秒 collar 下 fold 0/1 汇总错误数�
 
 ## 模型权重
 
-比赛训练权重后续通过百度网盘发布：
+最佳提交所需的 8 个比赛训练产物可从以下链接下载：
 
 | 权重 | 下载地址 | 提取码 |
 |---|---|---|
-| 上下文感知说话人转写模型 | [百度网盘](https://pan.baidu.com/s/1TZNc5W9h0CyZPdFnph8RfA?pwd=63pj) | `63pj` |
+| CAST 最佳系统权重（8 个产物） | [百度网盘](https://pan.baidu.com/s/1TZNc5W9h0CyZPdFnph8RfA?pwd=63pj) | `63pj` |
 
 下载 `CAST_checkpoints` 后，将其中的 `models/` 目录合并到仓库根目录。
 包内目录结构已与公开配置中的权重路径对齐：
 
 ```bash
 cp -a /path/to/CAST_checkpoints/models/. ./models/
+python scripts/normalize_checkpoint_layout.py .
+python scripts/verify_release.py .
 ```
 
 公开 ASR、说话人分离和说话人编码模型可以从官方源下载：
@@ -80,12 +82,18 @@ python scripts/download_public_models.py --root .
 最终研发环境为 Python 3.10、PyTorch 2.11.0+cu128、CUDA 12.8 和单张 RTX 3090。
 
 ```bash
-git clone git@github.com:KawhiQaQ/IFLYTEK-SpeakerAttributedTranscription2026-5th-Solution.git
+git clone https://github.com/KawhiQaQ/IFLYTEK-SpeakerAttributedTranscription2026-5th-Solution.git
 cd IFLYTEK-SpeakerAttributedTranscription2026-5th-Solution
 
 conda env create -f configs/environment.yml
-conda activate xunfei-s2
+conda activate cast
+bash scripts/install_runtime.sh
+conda deactivate && conda activate cast
 ```
+
+安装脚本会额外创建 `.venv-moss/` 隔离环境，避免
+MOSS-Transcribe-Diarize 与 Qwen3-ASR 所需 Transformers 版本冲突。
+公开预训练模型及中间缓存建议预留至少 80 GB 磁盘空间。
 
 ## 数据准备
 
@@ -98,22 +106,52 @@ data/
 │   └── ref.seglst.json
 ├── test/
 │   └── wav/*.wav
-└── sample_submission/*.json
+└── sample_submission/
+    └── submit_sample.json
+```
+
+使用比赛原始压缩包时，可直接执行：
+
+```bash
+mkdir -p data/sample_submission
+unzip dev.zip -d data
+unzip test.zip -d data
+unzip -j submit_sample.zip submit_sample.json -d data/sample_submission
+python scripts/prepare_official_data.py .
 ```
 
 本仓库不重新分发官方数据。外部数据和预训练模型来源见[数据与模型来源](docs/DATA_MODEL_PROVENANCE.md)及[第三方声明](THIRD_PARTY_NOTICES.md)。
 
-## 训练与推理
+## 使用最佳权重推理
 
-开源实现按照模型组件组织，而不是按照内部实验编号组织。主要阶段包括：
+完成环境安装、官方数据放置和发布权重复制后，执行：
 
-- Qwen3-ASR、FireRedASR2 和 MOSS-Transcribe-Diarize 推理；
-- Sortformer 说话人分离与多尺度说话人特征提取；
-- 声学度量模型和说话人纯度模型训练；
-- 上下文感知说话人 Transformer 训练；
-- 新说话人验证与最终说话人归属转写。
+```bash
+bash test.sh
+```
 
-各阶段输入、依赖关系和运行方式见[复现指南](docs/REPRODUCIBILITY.md)。百度网盘权重上传完成后会补充准确下载地址。
+脚本会自动下载缺失的公开预训练模型，完整执行固定推理流程，
+并将 UTF-8 SegLST 结果写入 `submissions/final_solution.seglst.json`。
+
+## 完整重新训练
+
+使用发布的数据清单、模型结构、随机种子和固定 epoch 设置重建全部学习组件：
+
+```bash
+bash train.sh
+```
+
+该脚本会准备固定的 VoxConverse 公开子集，提取所有声学特征，
+训练说话人数、度量、纯度、上下文和新说话人模型，确定性生成
+Sortformer 混合语音并适配流式 Sortformer。训练结束后执行：
+
+```bash
+CAST_SKIP_PUBLIC_MODEL_DOWNLOAD=1 \
+bash test.sh --allow-retrained-checkpoints
+```
+
+完整执行顺序、断点续跑、输入输出和每个模型对应的固定配置路径见
+[复现指南](docs/REPRODUCIBILITY.md)。
 
 ## 本地评测
 
@@ -132,11 +170,17 @@ meeteval-wer tcpwer \
 
 ```text
 configs/                 环境、公开模型、交叉验证和模型配置
-docs/                    方法、结果、验证、数据来源和复现文档
+docs/                    方法、验证、数据来源和复现文档
+manifests/               固定的公开外部数据清单
+reference/               发布参考预测及校验目标
 scripts/                 训练、推理、评测和提交代码
+third_party/             运行所需的精确第三方源码快照
+train.sh                 完整训练入口
+test.sh                  完整推理入口
 ```
 
-`data/`、`models/`、`outputs/`、`submissions/` 和 `third_party/` 均为本地运行时目录，由程序按需创建并被 Git 忽略。
+`data/`、`models/`、`outputs/` 和 `submissions/` 为本地运行时目录，
+由程序按需创建并被 Git 忽略。
 
 ## 开源协议
 
