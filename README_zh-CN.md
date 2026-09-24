@@ -2,8 +2,8 @@
 
 ### 2026 科大讯飞面向说话人转写内容的角色分离挑战赛第 5 名方案
 
-[![排名](https://img.shields.io/badge/Rank-5th-C99700)](#比赛结果)
-[![榜单 tcpWER](https://img.shields.io/badge/LB%20tcpWER-0.14727-2ea44f)](#比赛结果)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.11.0%2Bcu128-EE4C2C?logo=pytorch&logoColor=white)](#环境安装)
+[![CUDA](https://img.shields.io/badge/CUDA-12.8-76B900?logo=nvidia&logoColor=white)](#环境安装)
 [![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)](#环境安装)
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue)](LICENSE)
 

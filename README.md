@@ -2,8 +2,8 @@
 
 ### 5th-Place Solution for the 2026 iFLYTEK Speaker-Attributed Transcription Challenge
 
-[![Rank](https://img.shields.io/badge/Rank-5th-C99700)](#results)
-[![Leaderboard tcpWER](https://img.shields.io/badge/LB%20tcpWER-0.14727-2ea44f)](#results)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.11.0%2Bcu128-EE4C2C?logo=pytorch&logoColor=white)](#installation)
+[![CUDA](https://img.shields.io/badge/CUDA-12.8-76B900?logo=nvidia&logoColor=white)](#installation)
 [![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)](#installation)
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue)](LICENSE)
 
